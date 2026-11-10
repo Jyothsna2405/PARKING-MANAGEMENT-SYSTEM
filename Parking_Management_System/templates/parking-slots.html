@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Parking Slots | ParkEase</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header>
+
+    <div class="logo">
+        🅿️ ParkEase
+    </div>
+
+
+    <nav>
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/dashboard">
+            Dashboard
+        </a>
+
+        <a href="/vehicle">
+            Vehicles
+        </a>
+
+        <a href="/parking-slots">
+            Parking Slots
+        </a>
+
+        <a href="/search-vehicle">
+            Search
+        </a>
+
+        <a href="/sort-records">
+            Sort Records
+        </a>
+
+        <a href="/waiting-vehicles">
+            Waiting Vehicles
+        </a>
+
+        <a href="/parking-fees">
+            Parking Fees
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================================================
+     MAIN CONTENT
+========================================================= -->
+
+<main>
+
+
+    <!-- =====================================================
+         PAGE HEADER
+    ====================================================== -->
+
+    <section class="dashboard-header">
+
+        <p class="subtitle">
+            PARKING MANAGEMENT
+        </p>
+
+        <h1>
+            Parking Slots
+        </h1>
+
+        <p>
+            Manage parking spaces using the Greedy Algorithm.
+        </p>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MESSAGE
+    ====================================================== -->
+
+    {% if message %}
+
+    <div class="slot-message {{ message_type }}">
+
+        {% if message_type == "success" %}
+
+            ✓
+
+        {% else %}
+
+            !
+
+        {% endif %}
+
+        <span>
+            {{ message }}
+        </span>
+
+    </div>
+
+    {% endif %}
+
+
+
+    <!-- =====================================================
+         PARK VEHICLE
+    ====================================================== -->
+
+    <section class="slot-form">
+
+        <div class="section-title">
+
+            <span class="section-icon">
+                🅿️
+            </span>
+
+            <div>
+
+                <h2>
+                    Allocate Parking Slot
+                </h2>
+
+                <p>
+                    The system automatically selects the first
+                    available parking slot.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <form method="POST">
+
+            <input
+                type="hidden"
+                name="action"
+                value="park"
+            >
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="vehicle_number">
+                        Vehicle Number
+                    </label>
+
+                    <input
+                        type="text"
+                        id="vehicle_number"
+                        name="vehicle_number"
+                        placeholder="Example: KA01AB1234"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="parking-action-button"
+                >
+                    🅿️ Allocate Parking Slot
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <div class="algorithm-note">
+
+            <strong>
+                ⚡ Greedy Algorithm:
+            </strong>
+
+            The system checks the parking slots from
+            P01 onwards and assigns the first available slot.
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         PARKING SLOT GRID
+    ====================================================== -->
+
+    <section class="parking-slots-section">
+
+        <div class="section-title">
+
+            <span class="section-icon">
+                🅿️
+            </span>
+
+            <div>
+
+                <h2>
+                    Parking Slot Status
+                </h2>
+
+                <p>
+                    Current status of all parking spaces.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="slot-grid">
+
+            {% for slot in slots %}
+
+            <div class="parking-slot-card
+                        {% if slot.status == 'Available' %}
+                            available
+                        {% else %}
+                            occupied
+                        {% endif %}">
+
+
+                <!-- Slot Header -->
+
+                <div class="slot-card-header">
+
+                    <span class="slot-number">
+                        {{ slot.slot_number }}
+                    </span>
+
+
+                    {% if slot.status == "Available" %}
+
+                    <span class="slot-status available-status">
+                        AVAILABLE
+                    </span>
+
+                    {% else %}
+
+                    <span class="slot-status occupied-status">
+                        OCCUPIED
+                    </span>
+
+                    {% endif %}
+
+                </div>
+
+
+
+                <!-- Slot Icon -->
+
+                <div class="slot-icon">
+
+                    {% if slot.status == "Available" %}
+
+                        🅿️
+
+                    {% else %}
+
+                        🚗
+
+                    {% endif %}
+
+                </div>
+
+
+
+                <!-- Slot Information -->
+
+                {% if slot.vehicle_number %}
+
+                <div class="slot-vehicle">
+
+                    <span>
+                        Vehicle
+                    </span>
+
+                    <strong>
+                        {{ slot.vehicle_number }}
+                    </strong>
+
+                </div>
+
+
+                <!-- Release Button -->
+
+                <form method="POST">
+
+                    <input
+                        type="hidden"
+                        name="action"
+                        value="release"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="slot_number"
+                        value="{{ slot.slot_number }}"
+                    >
+
+                    <button
+                        type="submit"
+                        class="release-button"
+                    >
+                        Release Slot
+                    </button>
+
+                </form>
+
+
+                {% else %}
+
+                <div class="slot-empty">
+
+                    <span>
+                        No vehicle
+                    </span>
+
+                    <small>
+                        Slot available
+                    </small>
+
+                </div>
+
+                {% endif %}
+
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         STACK - UNDO LAST PARKING
+    ====================================================== -->
+
+    <section class="stack-section">
+
+        <div class="section-title">
+
+            <span class="section-icon">
+                ↩
+            </span>
+
+            <div>
+
+                <h2>
+                    Parking Operation Stack
+                </h2>
+
+                <p>
+                    Undo the most recent parking operation
+                    using the Stack.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="stack-container">
+
+
+            <!-- Stack Explanation -->
+
+            <div class="stack-information">
+
+                <div class="stack-badge">
+                    STACK
+                </div>
+
+                <h3>
+                    LIFO — Last In, First Out
+                </h3>
+
+                <p>
+                    Every successful parking operation is
+                    stored in the stack. The most recent
+                    operation is removed first when you
+                    select Undo.
+                </p>
+
+
+                <form
+                    method="POST"
+                    action="/undo-parking"
+                >
+
+                    <button
+                        type="submit"
+                        class="undo-button"
+                        {% if not stack %}
+                            disabled
+                        {% endif %}
+                    >
+                        ↩ Undo Last Parking
+                    </button>
+
+                </form>
+
+            </div>
+
+
+
+            <!-- Stack Records -->
+
+            <div class="stack-records">
+
+                <div class="stack-header">
+
+                    <span>
+                        Stack Operations
+                    </span>
+
+                    <strong>
+                        {{ stack|length }}
+                    </strong>
+
+                </div>
+
+
+                {% if stack %}
+
+                <div class="stack-list">
+
+                    {% for operation in stack|reverse %}
+
+                    <div class="stack-item">
+
+                        <div class="stack-position">
+
+                            {% if loop.first %}
+
+                                TOP
+
+                            {% else %}
+
+                                {{ loop.index }}
+
+                            {% endif %}
+
+                        </div>
+
+
+                        <div class="stack-operation">
+
+                            <strong>
+                                {{ operation.vehicle_number }}
+                            </strong>
+
+                            <span>
+                                Parking Slot
+                                {{ operation.slot_number }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+                {% else %}
+
+                <div class="stack-empty">
+
+                    <div class="stack-empty-icon">
+                        ∅
+                    </div>
+
+                    <p>
+                        No parking operations in the stack.
+                    </p>
+
+                    <small>
+                        Park a vehicle to create a stack operation.
+                    </small>
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ALGORITHM INFORMATION
+    ====================================================== -->
+
+    <section class="algorithm-info">
+
+        <div class="algorithm-info-card">
+
+            <div class="algorithm-info-icon">
+                ⚡
+            </div>
+
+            <div>
+
+                <h3>
+                    Greedy Algorithm
+                </h3>
+
+                <p>
+                    The system selects the first available
+                    parking slot. This provides a simple and
+                    efficient method for allocating parking spaces.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="algorithm-info-card">
+
+            <div class="algorithm-info-icon">
+                📚
+            </div>
+
+            <div>
+
+                <h3>
+                    Stack
+                </h3>
+
+                <p>
+                    Parking operations follow LIFO
+                    (Last In, First Out). The latest parking
+                    operation can be undone first.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <p>
+        Parking Management System | MCA Project
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

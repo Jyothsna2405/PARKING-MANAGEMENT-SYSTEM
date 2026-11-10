@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Search Vehicle</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+<header>
+
+    <div class="logo">🅿️ ParkEase</div>
+
+    <nav>
+
+        <a href="/">Home</a>
+
+        <a href="/dashboard">Dashboard</a>
+
+        <a href="/vehicle">Vehicles</a>
+
+        <a href="/parking-slots">Parking Slots</a>
+
+        <a href="/search-vehicle">Search</a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    <section class="dashboard-header">
+
+        <p class="subtitle">VEHICLE MANAGEMENT</p>
+
+        <h1>Search Vehicle</h1>
+
+        <p>
+            Find a vehicle record using Linear Search.
+        </p>
+
+    </section>
+
+
+    <!-- SEARCH FORM -->
+
+    <section class="search-form">
+
+        <h2>🔍 Search Vehicle</h2>
+
+        <p>
+            Enter the vehicle number to search for the vehicle.
+        </p>
+
+
+        <form method="POST">
+
+            <label for="vehicle_number">
+                Vehicle Number
+            </label>
+
+
+            <input
+                type="text"
+                id="vehicle_number"
+                name="vehicle_number"
+                placeholder="Example: KA01AB1234"
+                required
+            >
+
+
+            <button type="submit">
+                🔍 Search Vehicle
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- SEARCH RESULT -->
+
+    {% if vehicle %}
+
+    <section class="search-result">
+
+        <h2>✅ Vehicle Found</h2>
+
+
+        <div class="result-card">
+
+            <p>
+                <strong>Vehicle ID:</strong>
+                {{ vehicle.vehicle_id }}
+            </p>
+
+
+            <p>
+                <strong>Vehicle Number:</strong>
+                {{ vehicle.vehicle_number }}
+            </p>
+
+
+            <p>
+                <strong>Owner Name:</strong>
+                {{ vehicle.owner_name }}
+            </p>
+
+
+            <p>
+                <strong>Vehicle Type:</strong>
+                {{ vehicle.vehicle_type }}
+            </p>
+
+        </div>
+
+    </section>
+
+    {% endif %}
+
+
+    <!-- VEHICLE NOT FOUND -->
+
+    {% if message %}
+
+    <div class="search-message">
+
+        ❌ {{ message }}
+
+    </div>
+
+    {% endif %}
+
+
+</main>
+
+
+<footer>
+
+    <p>
+        Parking Management System | MCA Project
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

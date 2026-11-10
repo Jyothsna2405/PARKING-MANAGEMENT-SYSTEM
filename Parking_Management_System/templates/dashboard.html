@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ParkEase Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body class="dashboard-page">
+
+
+<div class="dashboard-layout">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+
+        <div class="sidebar-logo">
+
+            <div class="parking-logo">
+                P
+            </div>
+
+            <div>
+
+                <h2>ParkEase</h2>
+
+                <span>
+                    Parking System
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-section-title">
+            MAIN MENU
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+
+            <a href="/dashboard"
+               class="active">
+
+                <span>▦</span>
+
+                Dashboard
+
+            </a>
+
+
+            <a href="/vehicle">
+
+                <span>🚗</span>
+
+                Vehicles
+
+            </a>
+
+
+            <a href="/parking-slots">
+
+                <span>🅿</span>
+
+                Parking Slots
+
+            </a>
+
+
+            <a href="/search-vehicle">
+
+                <span>⌕</span>
+
+                Search Vehicle
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- =================================================
+             DATA STRUCTURES
+        ================================================== -->
+
+        <div class="sidebar-section-title">
+
+            DATA STRUCTURES
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+
+            <!-- BINARY SEARCH TREE -->
+
+            <a href="/bst">
+
+                <span>🌳</span>
+
+                Binary Search Tree
+
+            </a>
+
+
+            <!-- PARKING GRAPH -->
+
+            <a href="/graph">
+
+                <span>⌘</span>
+
+                Parking Graph
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- =================================================
+             OPERATIONS
+        ================================================== -->
+
+        <div class="sidebar-section-title">
+
+            OPERATIONS
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+
+            <a href="/sort-records">
+
+                <span>⇅</span>
+
+                Sort Records
+
+            </a>
+
+
+            <a href="/waiting-vehicles">
+
+                <span>☷</span>
+
+                Waiting Vehicles
+
+            </a>
+
+
+            <a href="/parking-fees">
+
+                <span>₹</span>
+
+                Parking Fees
+
+            </a>
+
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="/">
+
+                <span>←</span>
+
+                Back to Home
+
+            </a>
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN DASHBOARD
+    ====================================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- =================================================
+             TOP BAR
+        ================================================== -->
+
+        <header class="dashboard-topbar">
+
+
+            <div>
+
+                <div class="breadcrumb">
+
+                    PARKING MANAGEMENT / DASHBOARD
+
+                </div>
+
+
+                <h1>
+
+                    Dashboard
+
+                </h1>
+
+            </div>
+
+
+            <div class="admin-profile">
+
+
+                <div class="admin-avatar">
+
+                    A
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+
+                        Administrator
+
+                    </strong>
+
+
+                    <small>
+
+                        System Manager
+
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =================================================
+             WELCOME
+        ================================================== -->
+
+        <section class="dashboard-welcome">
+
+
+            <div>
+
+
+                <span class="welcome-label">
+
+                    PARKING MANAGEMENT SYSTEM
+
+                </span>
+
+
+                <h2>
+
+                    Welcome to ParkEase
+
+                </h2>
+
+
+                <p>
+
+                    Monitor vehicles, parking spaces
+                    and parking operations from one place.
+
+                </p>
+
+
+            </div>
+
+
+            <div class="date-box">
+
+
+                <span>
+
+                    STATUS
+
+                </span>
+
+
+                <strong>
+
+                    ● SYSTEM ACTIVE
+
+                </strong>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             STATISTICS
+        ================================================== -->
+
+        <section class="statistics">
+
+
+            <!-- TOTAL SLOTS -->
+
+            <div class="stat-card">
+
+
+                <div class="stat-icon blue">
+
+                    🅿
+
+                </div>
+
+
+                <div>
+
+                    <span>
+
+                        Total Slots
+
+                    </span>
+
+
+                    <h3>
+
+                        {{ total_slots }}
+
+                    </h3>
+
+
+                    <small>
+
+                        Parking capacity
+
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- AVAILABLE -->
+
+            <div class="stat-card">
+
+
+                <div class="stat-icon green">
+
+                    ✓
+
+                </div>
+
+
+                <div>
+
+                    <span>
+
+                        Available Slots
+
+                    </span>
+
+
+                    <h3>
+
+                        {{ available_slots }}
+
+                    </h3>
+
+
+                    <small>
+
+                        Currently available
+
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- OCCUPIED -->
+
+            <div class="stat-card">
+
+
+                <div class="stat-icon orange">
+
+                    🚗
+
+                </div>
+
+
+                <div>
+
+                    <span>
+
+                        Occupied Slots
+
+                    </span>
+
+
+                    <h3>
+
+                        {{ occupied_slots }}
+
+                    </h3>
+
+
+                    <small>
+
+                        Currently occupied
+
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- WAITING -->
+
+            <div class="stat-card">
+
+
+                <div class="stat-icon purple">
+
+                    ☷
+
+                </div>
+
+
+                <div>
+
+                    <span>
+
+                        Waiting Vehicles
+
+                    </span>
+
+
+                    <h3>
+
+                        {{ waiting_count }}
+
+                    </h3>
+
+
+                    <small>
+
+                        Vehicles in queue
+
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             SECTION HEADING
+        ================================================== -->
+
+        <div class="section-heading">
+
+
+            <div>
+
+                <span>
+
+                    MANAGEMENT MODULES
+
+                </span>
+
+
+                <h2>
+
+                    System Operations
+
+                </h2>
+
+            </div>
+
+
+            <p>
+
+                Select an operation to continue
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             MODULE GRID
+        ================================================== -->
+
+        <section class="module-grid">
+
+
+            <!-- =================================================
+                 01 VEHICLE
+            ================================================== -->
+
+            <div class="module-card">
+
+
+                <div class="module-top">
+
+
+                    <div class="module-icon vehicle-icon">
+
+                        🚗
+
+                    </div>
+
+
+                    <span class="module-number">
+
+                        01
+
+                    </span>
+
+
+                </div>
+
+
+                <h3>
+
+                    Vehicle Management
+
+                </h3>
+
+
+                <p>
+
+                    Add, update and manage vehicle
+                    records using a linked list.
+
+                </p>
+
+
+                <button
+                    onclick="window.location.href='/vehicle'">
+
+                    Manage Vehicles
+
+                    <span>→</span>
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 02 PARKING
+            ================================================== -->
+
+            <div class="module-card">
+
+
+                <div class="module-top">
+
+
+                    <div class="module-icon parking-icon-new">
+
+                        🅿
+
+                    </div>
+
+
+                    <span class="module-number">
+
+                        02
+
+                    </span>
+
+
+                </div>
+
+
+                <h3>
+
+                    Parking Slots
+
+                </h3>
+
+
+                <p>
+
+                    View available and occupied
+                    parking slots using greedy allocation.
+
+                </p>
+
+
+                <button
+                    onclick="window.location.href='/parking-slots'">
+
+                    Manage Slots
+
+                    <span>→</span>
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 03 SEARCH
+            ================================================== -->
+
+            <div class="module-card">
+
+
+                <div class="module-top">
+
+
+                    <div class="module-icon search-icon">
+
+                        🔍
+
+                    </div>
+
+
+                    <span class="module-number">
+
+                        03
+
+                    </span>
+
+
+                </div>
+
+
+                <h3>
+
+                    Search Vehicle
+
+                </h3>
+
+
+                <p>
+
+                    Find vehicle records using
+                    the Linear Search algorithm.
+
+                </p>
+
+
+                <button
+                    onclick="window.location.href='/search-vehicle'">
+
+                    Search Vehicle
+
+                    <span>→</span>
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 04 SORT
+            ================================================== -->
+
+            <div class="module-card">
+
+
+                <div class="module-top">
+
+
+                    <div class="module-icon sort-icon">
+
+                        ⇅
+
+                    </div>
+
+
+                    <span class="module-number">
+
+                        04
+
+                    </span>
+
+
+                </div>
+
+
+                <h3>
+
+                    Sort Records
+
+                </h3>
+
+
+                <p>
+
+                    Organize vehicle records using
+                    Bubble Sort and Merge Sort.
+
+                </p>
+
+
+                <button
+                    onclick="window.location.href='/sort-records'">
+
+                    Sort Records
+
+                    <span>→</span>
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 05 QUEUE
+            ================================================== -->
+
+            <div class="module-card">
+
+
+                <div class="module-top">
+
+
+                    <div class="module-icon queue-icon">
+
+                        ☷
+
+                    </div>
+
+
+                    <span class="module-number">
+
+                        05
+
+                    </span>
+
+
+                </div>
+
+
+                <h3>
+
+                    Waiting Vehicles
+
+                </h3>
+
+
+                <p>
+
+                    Manage vehicles waiting for
+                    parking using a Queue.
+
+                </p>
+
+
+                <button
+                    onclick="window.location.href='/waiting-vehicles'">
+
+                    View Queue
+
+                    <span>→</span>
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 06 FEES
+            ================================================== -->
+
+            <div class="module-card">
+
+
+                <div class="module-top">
+
+
+                    <div class="module-icon fee-icon">
+
+                        ₹
+
+                    </div>
+
+
+                    <span class="module-number">
+
+                        06
+
+                    </span>
+
+
+                </div>
+
+
+                <h3>
+
+                    Parking Fees
+
+                </h3>
+
+
+                <p>
+
+                    Calculate parking duration
+                    and manage parking fees.
+
+                </p>
+
+
+                <button
+                    onclick="window.location.href='/parking-fees'">
+
+                    Manage Fees
+
+                    <span>→</span>
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 07 BINARY SEARCH TREE
+            ================================================== -->
+
+            <div class="module-card bst-dashboard-card">
+
+
+                <div class="module-top">
+
+
+                    <div class="module-icon bst-icon">
+
+                        🌳
+
+                    </div>
+
+
+                    <span class="module-number">
+
+                        07
+
+                    </span>
+
+
+                </div>
+
+
+                <h3>
+
+                    Binary Search Tree
+
+                </h3>
+
+
+                <p>
+
+                    Organize vehicle records using
+                    Vehicle ID and perform BST
+                    search and tree traversals.
+
+                </p>
+
+
+                <button
+                    onclick="window.location.href='/bst'">
+
+                    Open BST
+
+                    <span>→</span>
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 08 PARKING GRAPH
+            ================================================== -->
+
+            <div class="module-card graph-dashboard-card">
+
+
+                <div class="module-top">
+
+
+                    <div class="module-icon graph-icon">
+
+                        ◈
+
+                    </div>
+
+
+                    <span class="module-number">
+
+                        08
+
+                    </span>
+
+
+                </div>
+
+
+                <h3>
+
+                    Parking Graph
+
+                </h3>
+
+
+                <p>
+
+                    Represent parking-slot connections
+                    and perform BFS and DFS traversal.
+
+                </p>
+
+
+                <button
+                    onclick="window.location.href='/graph'">
+
+                    Open Graph
+
+                    <span>→</span>
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             ALGORITHM PANEL
+        ================================================== -->
+
+        <section class="algorithm-panel">
+
+
+            <div class="algorithm-title">
+
+
+                <span>
+
+                    DSA
+
+                </span>
+
+
+                <div>
+
+                    <h3>
+
+                        Data Structures & Algorithms
+
+                    </h3>
+
+
+                    <p>
+
+                        Core techniques used in this project
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="algorithm-list">
+
+
+                <!-- LINKED LIST -->
+
+                <div>
+
+                    <strong>
+
+                        Linked List
+
+                    </strong>
+
+                    <span>
+
+                        Vehicle Records
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- QUEUE -->
+
+                <div>
+
+                    <strong>
+
+                        Queue
+
+                    </strong>
+
+                    <span>
+
+                        Waiting Vehicles
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- STACK -->
+
+                <div>
+
+                    <strong>
+
+                        Stack
+
+                    </strong>
+
+                    <span>
+
+                        Undo Operations
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- BST -->
+
+                <div>
+
+                    <strong>
+
+                        Binary Search Tree
+
+                    </strong>
+
+                    <span>
+
+                        Vehicle ID Search
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- GRAPH -->
+
+                <div>
+
+                    <strong>
+
+                        Graph
+
+                    </strong>
+
+                    <span>
+
+                        Parking Slot Connections
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- BFS / DFS -->
+
+                <div>
+
+                    <strong>
+
+                        BFS / DFS
+
+                    </strong>
+
+                    <span>
+
+                        Graph Traversal
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- LINEAR SEARCH -->
+
+                <div>
+
+                    <strong>
+
+                        Linear Search
+
+                    </strong>
+
+                    <span>
+
+                        Vehicle Search
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- SORTING -->
+
+                <div>
+
+                    <strong>
+
+                        Bubble / Merge Sort
+
+                    </strong>
+
+                    <span>
+
+                        Record Sorting
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- GREEDY -->
+
+                <div>
+
+                    <strong>
+
+                        Greedy Algorithm
+
+                    </strong>
+
+                    <span>
+
+                        Slot Allocation
+
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer class="dashboard-footer">
+
+
+            <span>
+
+                ParkEase — Parking Management System
+
+            </span>
+
+
+            <span>
+
+                MCA Data Structures & Algorithms Project
+
+            </span>
+
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

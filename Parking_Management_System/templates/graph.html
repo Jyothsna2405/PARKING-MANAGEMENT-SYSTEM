@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Parking Graph | ParkEase</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body class="dashboard-page">
+
+
+<div class="dashboard-layout">
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <div class="parking-logo">
+                P
+            </div>
+
+            <div>
+
+                <h2>ParkEase</h2>
+
+                <span>
+                    Parking System
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-section-title">
+            MAIN MENU
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="/dashboard">
+
+                <span>▦</span>
+
+                Dashboard
+
+            </a>
+
+
+            <a href="/vehicle">
+
+                <span>🚗</span>
+
+                Vehicles
+
+            </a>
+
+
+            <a href="/parking-slots">
+
+                <span>🅿</span>
+
+                Parking Slots
+
+            </a>
+
+
+            <a href="/search-vehicle">
+
+                <span>⌕</span>
+
+                Search Vehicle
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-section-title">
+            DATA STRUCTURES
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="/bst">
+
+                <span>🌳</span>
+
+                Binary Search Tree
+
+            </a>
+
+
+            <a href="/graph"
+               class="active">
+
+                <span>🕸</span>
+
+                Parking Graph
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-section-title">
+            OPERATIONS
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="/sort-records">
+
+                <span>⇅</span>
+
+                Sort Records
+
+            </a>
+
+
+            <a href="/waiting-vehicles">
+
+                <span>☷</span>
+
+                Waiting Vehicles
+
+            </a>
+
+
+            <a href="/parking-fees">
+
+                <span>₹</span>
+
+                Parking Fees
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="/">
+
+                <span>←</span>
+
+                Back to Home
+
+            </a>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="dashboard-main">
+
+
+        <header class="dashboard-topbar">
+
+            <div>
+
+                <div class="breadcrumb">
+
+                    DATA STRUCTURES /
+                    PARKING GRAPH
+
+                </div>
+
+
+                <h1>
+
+                    Parking Area Graph
+
+                </h1>
+
+            </div>
+
+
+            <div class="admin-profile">
+
+                <div class="admin-avatar">
+
+                    A
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Administrator
+                    </strong>
+
+                    <small>
+                        System Manager
+                    </small>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- INTRODUCTION -->
+
+        <section class="dashboard-welcome">
+
+            <div>
+
+                <span class="welcome-label">
+
+                    PHASE 3 — GRAPH
+
+                </span>
+
+
+                <h2>
+
+                    Parking Area Connections
+
+                </h2>
+
+
+                <p>
+
+                    Parking slots are represented as
+                    nodes and their connections are
+                    represented as edges.
+
+                </p>
+
+            </div>
+
+
+            <div class="date-box">
+
+                <span>
+
+                    STATUS
+
+                </span>
+
+
+                <strong>
+
+                    ● GRAPH ACTIVE
+
+                </strong>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- STATISTICS -->
+
+        <section class="statistics">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    ●
+                </div>
+
+                <div>
+
+                    <span>
+                        Graph Nodes
+                    </span>
+
+                    <h3>
+                        {{ node_count }}
+                    </h3>
+
+                    <small>
+                        Parking slots
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    ↔
+                </div>
+
+                <div>
+
+                    <span>
+                        Connections
+                    </span>
+
+                    <h3>
+                        {{ edge_count }}
+                    </h3>
+
+                    <small>
+                        Parking paths
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+                    B
+                </div>
+
+                <div>
+
+                    <span>
+                        BFS
+                    </span>
+
+                    <h3>
+                        Active
+                    </h3>
+
+                    <small>
+                        Breadth First Search
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon purple">
+                    D
+                </div>
+
+                <div>
+
+                    <span>
+                        DFS
+                    </span>
+
+                    <h3>
+                        Active
+                    </h3>
+
+                    <small>
+                        Depth First Search
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- SEARCH -->
+
+        <section class="vehicle-form">
+
+            <h2>
+                🔍 Run Graph Traversal
+            </h2>
+
+
+            <p>
+                Select a parking slot as the
+                starting node.
+            </p>
+
+
+            <form method="POST">
+
+                <label>
+                    Starting Parking Slot
+                </label>
+
+
+                <select name="start_node">
+
+                    {% for node in graph_data.keys() %}
+
+                    <option
+                        value="{{ node }}"
+                        {% if node == start_node %}
+                        selected
+                        {% endif %}
+                    >
+
+                        {{ node }}
+
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+
+                <button type="submit">
+
+                    Run BFS & DFS
+
+                </button>
+
+            </form>
+
+        </section>
+
+
+
+        {% if message %}
+
+        <div class="slot-message error">
+
+            {{ message }}
+
+        </div>
+
+        {% endif %}
+
+
+
+        <!-- TRAVERSALS -->
+
+        <div class="section-heading">
+
+            <div>
+
+                <span>
+                    GRAPH TRAVERSALS
+                </span>
+
+                <h2>
+                    Search Results
+                </h2>
+
+            </div>
+
+
+            <p>
+
+                Starting Node:
+                <strong>{{ start_node }}</strong>
+
+            </p>
+
+        </div>
+
+
+
+        <section class="module-grid">
+
+
+            <!-- BFS -->
+
+            <div class="module-card">
+
+                <div class="module-top">
+
+                    <div class="module-icon parking-icon-new">
+
+                        B
+
+                    </div>
+
+
+                    <span class="module-number">
+
+                        01
+
+                    </span>
+
+                </div>
+
+
+                <h3>
+
+                    Breadth First Search
+
+                </h3>
+
+
+                <p>
+
+                    BFS visits nearby nodes first
+                    using a queue.
+
+                </p>
+
+
+                <div class="bst-list">
+
+                    {% for node in bfs_result %}
+
+                    <div>
+
+                        <strong>
+
+                            {{ loop.index }}
+
+                        </strong>
+
+                        <span>
+
+                            {{ node }}
+
+                        </span>
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DFS -->
+
+            <div class="module-card">
+
+                <div class="module-top">
+
+                    <div class="module-icon vehicle-icon">
+
+                        D
+
+                    </div>
+
+
+                    <span class="module-number">
+
+                        02
+
+                    </span>
+
+                </div>
+
+
+                <h3>
+
+                    Depth First Search
+
+                </h3>
+
+
+                <p>
+
+                    DFS explores one path deeply
+                    before backtracking.
+
+                </p>
+
+
+                <div class="bst-list">
+
+                    {% for node in dfs_result %}
+
+                    <div>
+
+                        <strong>
+
+                            {{ loop.index }}
+
+                        </strong>
+
+                        <span>
+
+                            {{ node }}
+
+                        </span>
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- GRAPH CONNECTIONS -->
+
+        <section class="algorithm-panel">
+
+            <div class="algorithm-title">
+
+                <span>
+                    GRAPH
+                </span>
+
+                <div>
+
+                    <h3>
+                        Parking Slot Connections
+                    </h3>
+
+                    <p>
+                        Adjacency list representation
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="algorithm-list">
+
+                {% for node, neighbours in graph_data.items() %}
+
+                <div>
+
+                    <strong>
+                        {{ node }}
+                    </strong>
+
+                    <span>
+
+                        {% if neighbours %}
+
+                        {{ neighbours | join(" → ") }}
+
+                        {% else %}
+
+                        No connections
+
+                        {% endif %}
+
+                    </span>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </section>
+
+
+
+        <footer class="dashboard-footer">
+
+            <span>
+                ParkEase — Parking Management System
+            </span>
+
+
+            <span>
+                Phase 3 — Graph / BFS / DFS
+            </span>
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Parking Fees</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+<header>
+
+    <div class="logo">🅿️ ParkEase</div>
+
+    <nav>
+
+        <a href="/">Home</a>
+
+        <a href="/dashboard">Dashboard</a>
+
+        <a href="/vehicle">Vehicles</a>
+
+        <a href="/parking-slots">Parking Slots</a>
+
+        <a href="/search-vehicle">Search</a>
+
+        <a href="/sort-records">Sort Records</a>
+
+        <a href="/waiting-vehicles">Waiting Vehicles</a>
+
+        <a href="/parking-fees">Parking Fees</a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    <!-- =====================================================
+         PAGE HEADER
+         ===================================================== -->
+
+    <section class="dashboard-header">
+
+        <p class="subtitle">PARKING MANAGEMENT</p>
+
+        <h1>Parking Fees</h1>
+
+        <p>
+            Calculate parking charges based on parking duration.
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         FEE CALCULATOR
+         ===================================================== -->
+
+    <section class="fee-form">
+
+        <h2>💰 Calculate Parking Fee</h2>
+
+        <p>
+            Enter the vehicle number and parking duration.
+        </p>
+
+
+        <form method="POST">
+
+            <input
+                type="hidden"
+                name="action"
+                value="calculate"
+            >
+
+
+            <label for="vehicle_number">
+                Vehicle Number
+            </label>
+
+            <input
+                type="text"
+                id="vehicle_number"
+                name="vehicle_number"
+                placeholder="Example: KA01AB1234"
+                required
+            >
+
+
+            <label for="hours">
+                Parking Duration (Hours)
+            </label>
+
+            <input
+                type="number"
+                id="hours"
+                name="hours"
+                min="1"
+                placeholder="Enter hours"
+                required
+            >
+
+
+            <button type="submit">
+                💰 Calculate Fee
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- =====================================================
+         FEE RESULT
+         ===================================================== -->
+
+    {% if fee is not none %}
+
+    <section class="fee-result">
+
+        <div class="fee-result-icon">
+            ₹
+        </div>
+
+
+        <div class="fee-result-content">
+
+            <p class="fee-label">
+                PARKING CHARGE
+            </p>
+
+
+            <h2>
+                ₹{{ fee }}
+            </h2>
+
+
+            <div class="fee-details">
+
+                <div>
+
+                    <span>
+                        Vehicle Number
+                    </span>
+
+                    <strong>
+                        {{ vehicle_number }}
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Duration
+                    </span>
+
+                    <strong>
+                        {{ hours }} Hour(s)
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Rate
+                    </span>
+
+                    <strong>
+                        ₹20 / Hour
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 PAYMENT SECTION
+                 ================================================= -->
+
+            {% if payment_done %}
+
+            <!-- PAYMENT COMPLETED -->
+
+            <div class="payment-success">
+
+                <div class="payment-success-icon">
+                    ✓
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Payment Done
+                    </strong>
+
+                    <p>
+                        Payment of ₹{{ fee }}
+                        completed successfully.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            {% else %}
+
+            <!-- PAYMENT BUTTON -->
+
+            <form method="POST" class="payment-form">
+
+                <input
+                    type="hidden"
+                    name="action"
+                    value="pay"
+                >
+
+
+                <input
+                    type="hidden"
+                    name="vehicle_number"
+                    value="{{ vehicle_number }}"
+                >
+
+
+                <input
+                    type="hidden"
+                    name="hours"
+                    value="{{ hours }}"
+                >
+
+
+                <!-- IMPORTANT:
+                     Send calculated fee to Flask -->
+
+                <input
+                    type="hidden"
+                    name="fee"
+                    value="{{ fee }}"
+                >
+
+
+                <button
+                    type="submit"
+                    class="pay-button"
+                >
+                    💳 Pay ₹{{ fee }}
+                </button>
+
+            </form>
+
+
+            {% endif %}
+
+        </div>
+
+    </section>
+
+    {% endif %}
+
+
+    <!-- =====================================================
+         PAYMENT MESSAGE
+         ===================================================== -->
+
+    {% if message %}
+
+    <section class="payment-message">
+
+        <div class="payment-message-icon">
+            ✓
+        </div>
+
+        <div>
+
+            <strong>
+                Payment Successful
+            </strong>
+
+            <p>
+                {{ message }}
+            </p>
+
+        </div>
+
+    </section>
+
+    {% endif %}
+
+
+    <!-- =====================================================
+         PARKING FEE INFORMATION
+         ===================================================== -->
+
+    <section class="fee-info">
+
+
+        <div class="fee-info-card">
+
+            <div class="fee-info-icon">
+                ₹
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Parking Rate
+                </h3>
+
+                <p>
+                    The parking charge is calculated
+                    at ₹20 per hour.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="fee-info-card">
+
+            <div class="fee-info-icon">
+                =
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Fee Formula
+                </h3>
+
+                <p>
+                    Parking Fee = Parking Hours ×
+                    Rate Per Hour
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        Parking Management System | MCA Project
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

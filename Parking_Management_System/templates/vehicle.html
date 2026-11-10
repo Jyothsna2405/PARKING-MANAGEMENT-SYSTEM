@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Vehicle Management</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+<header>
+
+    <div class="logo">
+        🅿️ ParkEase
+    </div>
+
+    <nav>
+
+        <a href="/">Home</a>
+
+        <a href="/dashboard">Dashboard</a>
+
+        <a href="/vehicle">Vehicles</a>
+
+        <a href="/parking-slots">Parking Slots</a>
+
+        <a href="/search-vehicle">Search</a>
+
+        <a href="/sort-records">Sort Records</a>
+
+        <a href="/waiting-vehicles">Waiting Vehicles</a>
+
+        <a href="/parking-fees">Parking Fees</a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    <!-- =====================================================
+         PAGE HEADER
+    ====================================================== -->
+
+    <section class="dashboard-header">
+
+        <p class="subtitle">
+            VEHICLE MANAGEMENT
+        </p>
+
+        <h1>
+            Add Vehicle
+        </h1>
+
+        <p>
+            Add vehicle records using a Linked List
+            and assign a parking slot.
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         MESSAGE
+    ====================================================== -->
+
+    {% if message %}
+
+    <div class="slot-message {{ message_type }}">
+
+        {{ message }}
+
+    </div>
+
+    {% endif %}
+
+
+    <!-- =====================================================
+         VEHICLE FORM
+    ====================================================== -->
+
+    <section class="vehicle-form">
+
+        <h2>
+            🚗 Add Vehicle
+        </h2>
+
+        <p>
+            Enter vehicle details and assign a parking slot.
+        </p>
+
+
+        <form method="POST">
+
+
+            <!-- VEHICLE ID -->
+
+            <label for="vehicle_id">
+                Vehicle ID
+            </label>
+
+            <input
+                type="text"
+                id="vehicle_id"
+                name="vehicle_id"
+                placeholder="Example: 101"
+                required
+            >
+
+
+            <!-- VEHICLE NUMBER -->
+
+            <label for="vehicle_number">
+                Vehicle Number
+            </label>
+
+            <input
+                type="text"
+                id="vehicle_number"
+                name="vehicle_number"
+                placeholder="Example: KA01AB1234"
+                required
+            >
+
+
+            <!-- OWNER NAME -->
+
+            <label for="owner_name">
+                Owner Name
+            </label>
+
+            <input
+                type="text"
+                id="owner_name"
+                name="owner_name"
+                placeholder="Enter owner name"
+                required
+            >
+
+
+            <!-- VEHICLE TYPE -->
+
+            <label for="vehicle_type">
+                Vehicle Type
+            </label>
+
+            <select
+                id="vehicle_type"
+                name="vehicle_type"
+                required
+            >
+
+                <option value="">
+                    Select Vehicle Type
+                </option>
+
+                <option value="Car">
+                    Car
+                </option>
+
+                <option value="Bike">
+                    Bike
+                </option>
+
+                <option value="SUV">
+                    SUV
+                </option>
+
+                <option value="Van">
+                    Van
+                </option>
+
+            </select>
+
+
+            <!-- PARKING SLOT -->
+
+            <label for="parking_slot">
+                Parking Slot
+            </label>
+
+            <input
+                type="text"
+                id="parking_slot"
+                name="parking_slot"
+                placeholder="Example: P01"
+                pattern="P(0[1-9]|10)"
+                title="Enter a valid parking slot from P01 to P10"
+                required
+            >
+
+            <small>
+                Enter a slot between P01 and P10.
+            </small>
+
+
+            <!-- SUBMIT -->
+
+            <button type="submit">
+
+                ➕ Add Vehicle
+
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- =====================================================
+         VEHICLE RECORDS
+    ====================================================== -->
+
+    <section class="vehicle-records">
+
+        <h2>
+            Vehicle Records
+        </h2>
+
+
+        {% if vehicles %}
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        VEHICLE ID
+                    </th>
+
+                    <th>
+                        VEHICLE NUMBER
+                    </th>
+
+                    <th>
+                        OWNER NAME
+                    </th>
+
+                    <th>
+                        VEHICLE TYPE
+                    </th>
+
+                    <th>
+                        PARKING SLOT
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for vehicle in vehicles %}
+
+                <tr>
+
+                    <td>
+                        {{ vehicle.vehicle_id }}
+                    </td>
+
+                    <td>
+                        {{ vehicle.vehicle_number }}
+                    </td>
+
+                    <td>
+                        {{ vehicle.owner_name }}
+                    </td>
+
+                    <td>
+                        {{ vehicle.vehicle_type }}
+                    </td>
+
+                    <td>
+                        {{ vehicle.parking_slot }}
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+
+        {% else %}
+
+        <p class="empty-message">
+            No vehicles added yet.
+        </p>
+
+        {% endif %}
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        Parking Management System | MCA Project
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

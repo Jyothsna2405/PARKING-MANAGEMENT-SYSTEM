@@ -1,0 +1,4759 @@
+/* =========================================================
+   PARKEASE - PARKING MANAGEMENT SYSTEM
+   CLEAN PROFESSIONAL DARK THEME
+========================================================= */
+
+
+/* =========================================================
+   1. GLOBAL RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #0b0f14;
+    color: #f5f7fa;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+::selection {
+    background: #ffffff;
+    color: #0b0f14;
+}
+
+
+/* =========================================================
+   2. HOME PAGE
+========================================================= */
+
+.home-page {
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            circle at 80% 15%,
+            rgba(255, 255, 255, 0.06),
+            transparent 30%
+        ),
+        #0b0f14;
+}
+
+
+/* =========================================================
+   3. NAVIGATION BAR
+========================================================= */
+
+.home-navbar {
+    width: 100%;
+    height: 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    background: rgba(11, 15, 20, 0.95);
+    border-bottom: 1px solid #20262d;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+/* Brand */
+
+.home-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.home-logo {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+
+    font-size: 21px;
+    font-weight: 800;
+
+    color: #ffffff;
+    background: #151b22;
+}
+
+.home-brand h2 {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.home-brand span {
+    display: block;
+
+    margin-top: -2px;
+
+    font-size: 10px;
+    color: #8d969f;
+
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+
+/* Navigation */
+
+.home-nav {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+}
+
+.home-nav a {
+    color: #8d969f;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: 0.25s ease;
+}
+
+.home-nav a:hover,
+.home-nav .home-active {
+    color: #ffffff;
+}
+
+
+/* Dashboard Button */
+
+.dashboard-link {
+    padding: 10px 18px;
+
+    border: 1px solid #343b43;
+    border-radius: 8px;
+
+    color: #ffffff !important;
+
+    background: #151b22;
+
+    transition: 0.25s ease;
+}
+
+.dashboard-link:hover {
+    background: #ffffff;
+    color: #0b0f14 !important;
+    border-color: #ffffff;
+}
+
+
+/* =========================================================
+   4. HERO SECTION
+========================================================= */
+
+.home-hero {
+    min-height: 620px;
+
+    max-width: 1200px;
+    margin: auto;
+
+    padding: 90px 40px 80px;
+
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+
+    align-items: center;
+    gap: 70px;
+}
+
+
+/* Hero Left */
+
+.home-hero-content {
+    max-width: 650px;
+}
+
+.project-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 8px 13px;
+
+    border: 1px solid #2d343c;
+    border-radius: 50px;
+
+    background: #11171d;
+
+    color: #a7afb7;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.3px;
+}
+
+.project-badge span {
+    color: #ffffff;
+}
+
+
+/* Hero Heading */
+
+.home-hero h1 {
+    margin-top: 24px;
+
+    font-size: clamp(42px, 5vw, 70px);
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+
+    font-weight: 800;
+
+    color: #ffffff;
+}
+
+.home-hero h1 span {
+    color: #8e969e;
+}
+
+
+/* Hero Description */
+
+.home-description {
+    max-width: 600px;
+
+    margin-top: 25px;
+
+    color: #929aa3;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   5. HERO BUTTONS
+========================================================= */
+
+.home-buttons {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: 32px;
+}
+
+.primary-home-button,
+.secondary-home-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+
+    padding: 0 21px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: all 0.25s ease;
+}
+
+
+/* Primary */
+
+.primary-home-button {
+    gap: 12px;
+
+    background: #ffffff;
+    color: #0b0f14;
+
+    border: 1px solid #ffffff;
+}
+
+.primary-home-button:hover {
+    background: #dfe3e7;
+    border-color: #dfe3e7;
+
+    transform: translateY(-2px);
+}
+
+.primary-home-button span {
+    font-size: 18px;
+}
+
+
+/* Secondary */
+
+.secondary-home-button {
+    border: 1px solid #343b43;
+
+    background: #12181e;
+
+    color: #dce1e5;
+}
+
+.secondary-home-button:hover {
+    border-color: #ffffff;
+    color: #ffffff;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   6. QUICK STATS
+========================================================= */
+
+.home-stats {
+    display: flex;
+
+    margin-top: 45px;
+
+    gap: 0;
+}
+
+.home-stat {
+    min-width: 125px;
+
+    padding-right: 25px;
+    margin-right: 25px;
+
+    border-right: 1px solid #2a3037;
+}
+
+.home-stat:last-child {
+    border-right: none;
+}
+
+.home-stat strong {
+    display: block;
+
+    font-size: 22px;
+    font-weight: 700;
+
+    color: #ffffff;
+}
+
+.home-stat span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #737c85;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   7. PARKING PREVIEW
+========================================================= */
+
+.parking-preview {
+    width: 100%;
+    max-width: 430px;
+
+    padding: 28px;
+
+    margin-left: auto;
+
+    background: #11171d;
+
+    border: 1px solid #2a3138;
+    border-radius: 16px;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Preview Header */
+
+.preview-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 24px;
+}
+
+.preview-header span {
+    color: #7e8790;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.preview-header strong {
+    color: #ffffff;
+
+    font-size: 22px;
+}
+
+
+/* Parking Grid */
+
+.parking-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+}
+
+.parking-slot {
+    height: 105px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border-radius: 10px;
+
+    border: 1px solid #2c333b;
+
+    background: #151b21;
+
+    transition: 0.25s ease;
+}
+
+.parking-slot:hover {
+    transform: translateY(-3px);
+}
+
+.parking-slot span {
+    font-size: 25px;
+}
+
+.parking-slot small {
+    color: #818a93;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+/* Available Slot */
+
+.parking-slot.available {
+    border-color: #39434c;
+}
+
+.parking-slot.available span {
+    color: #ffffff;
+
+    font-size: 21px;
+    font-weight: 800;
+}
+
+
+/* Occupied Slot */
+
+.parking-slot.occupied {
+    background: #0d1217;
+}
+
+.parking-slot.occupied span {
+    filter: grayscale(100%);
+    opacity: 0.8;
+}
+
+
+/* Parking Legend */
+
+.parking-legend {
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin-top: 24px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid #252c33;
+}
+
+.parking-legend span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: #858e97;
+
+    font-size: 11px;
+}
+
+.parking-legend i {
+    width: 7px;
+    height: 7px;
+
+    display: inline-block;
+
+    border-radius: 50%;
+}
+
+.available-dot {
+    background: #ffffff;
+}
+
+.occupied-dot {
+    background: #555e67;
+}
+
+
+/* =========================================================
+   8. FEATURES SECTION
+========================================================= */
+
+.home-features {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 90px 40px;
+}
+
+
+/* Heading */
+
+.features-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    gap: 50px;
+
+    margin-bottom: 45px;
+}
+
+.features-heading > div > span {
+    color: #737c85;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.6px;
+}
+
+.features-heading h2 {
+    max-width: 600px;
+
+    margin-top: 10px;
+
+    font-size: 38px;
+
+    line-height: 1.15;
+
+    letter-spacing: -1px;
+
+    color: #ffffff;
+}
+
+.features-heading > p {
+    max-width: 390px;
+
+    color: #7f8891;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* Feature Grid */
+
+.home-feature-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+
+/* Feature Card */
+
+.home-feature-card {
+    min-height: 225px;
+
+    padding: 28px;
+
+    background: #11171d;
+
+    border: 1px solid #242b32;
+
+    border-radius: 12px;
+
+    transition: all 0.25s ease;
+}
+
+.home-feature-card:hover {
+    border-color: #4a535c;
+
+    transform: translateY(-5px);
+
+    background: #141a20;
+}
+
+
+/* Feature Icon */
+
+.feature-icon {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 23px;
+
+    border-radius: 10px;
+
+    border: 1px solid #343c44;
+
+    background: #181e24;
+
+    font-size: 20px;
+}
+
+.feature-icon.parking {
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.feature-icon.sort {
+    font-size: 25px;
+}
+
+.feature-icon.queue {
+    font-size: 25px;
+}
+
+.feature-icon.greedy {
+    font-size: 21px;
+}
+
+
+/* Feature Text */
+
+.home-feature-card h3 {
+    margin-bottom: 9px;
+
+    color: #ffffff;
+
+    font-size: 16px;
+}
+
+.home-feature-card p {
+    color: #7e8790;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   9. ABOUT SECTION
+========================================================= */
+
+.home-about {
+    max-width: 1200px;
+
+    margin: 20px auto 90px;
+
+    padding: 55px 60px;
+
+    display: grid;
+
+    grid-template-columns: 1.2fr 0.8fr;
+
+    align-items: center;
+
+    gap: 60px;
+
+    background: #11171d;
+
+    border: 1px solid #272e35;
+
+    border-radius: 16px;
+}
+
+
+/* About Content */
+
+.about-content > span {
+    color: #737c85;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.6px;
+}
+
+.about-content h2 {
+    max-width: 560px;
+
+    margin-top: 10px;
+
+    font-size: 35px;
+
+    line-height: 1.2;
+
+    letter-spacing: -1px;
+
+    color: #ffffff;
+}
+
+.about-content p {
+    max-width: 580px;
+
+    margin-top: 18px;
+
+    color: #818a93;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* DSA Information */
+
+.about-dsa {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+}
+
+.about-dsa div {
+    padding: 20px;
+
+    border: 1px solid #2a3138;
+
+    border-radius: 10px;
+
+    background: #151b21;
+}
+
+.about-dsa strong {
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 14px;
+}
+
+.about-dsa span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #737d86;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   10. FOOTER
+========================================================= */
+
+.home-footer {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 28px 40px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-top: 1px solid #222930;
+
+    color: #626b74;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   11. DASHBOARD SUPPORT
+========================================================= */
+
+/*
+   These styles also support the dashboard.html
+   we created earlier.
+*/
+
+
+.dashboard-header {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 70px 40px 35px;
+}
+
+.dashboard-header .subtitle {
+    color: #737c85;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.dashboard-header h1 {
+    margin-top: 8px;
+
+    font-size: 46px;
+
+    color: #ffffff;
+}
+
+.dashboard-header p {
+    margin-top: 10px;
+
+    color: #7e8790;
+
+    font-size: 14px;
+}
+
+
+.dashboard-cards {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 20px 40px 90px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 16px;
+}
+
+
+.dashboard-card {
+    padding: 30px;
+
+    min-height: 250px;
+
+    background: #11171d;
+
+    border: 1px solid #282f36;
+
+    border-radius: 13px;
+
+    transition: 0.25s ease;
+}
+
+.dashboard-card:hover {
+    border-color: #4b545d;
+
+    transform: translateY(-4px);
+}
+
+.card-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 22px;
+
+    border-radius: 10px;
+
+    border: 1px solid #343c44;
+
+    background: #181e24;
+
+    font-size: 21px;
+}
+
+.dashboard-card h2 {
+    margin-bottom: 9px;
+
+    font-size: 18px;
+
+    color: #ffffff;
+}
+
+.dashboard-card p {
+    min-height: 50px;
+
+    margin-bottom: 20px;
+
+    color: #7e8790;
+
+    font-size: 13px;
+}
+
+.dashboard-card button {
+    padding: 10px 17px;
+
+    border: 1px solid #394149;
+
+    border-radius: 7px;
+
+    background: #171d23;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: 0.25s ease;
+}
+
+.dashboard-card button:hover {
+    background: #ffffff;
+
+    color: #0b0f14;
+
+    border-color: #ffffff;
+}
+
+
+/* =========================================================
+   12. RESPONSIVE DESIGN - TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .home-navbar {
+        padding: 0 4%;
+    }
+
+    .home-nav {
+        gap: 17px;
+    }
+
+    .home-nav a {
+        font-size: 12px;
+    }
+
+    .home-hero {
+        grid-template-columns: 1fr;
+
+        padding: 70px 30px;
+
+        gap: 50px;
+    }
+
+    .parking-preview {
+        margin: auto;
+    }
+
+    .features-heading {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .home-feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .home-about {
+        margin-left: 30px;
+        margin-right: 30px;
+
+        padding: 45px;
+
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   13. RESPONSIVE DESIGN - MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .home-navbar {
+        height: auto;
+
+        padding: 16px 20px;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .home-nav {
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 14px;
+    }
+
+    .home-nav a {
+        font-size: 11px;
+    }
+
+    .dashboard-link {
+        padding: 8px 12px;
+    }
+
+
+    /* Hero */
+
+    .home-hero {
+        padding: 55px 20px;
+    }
+
+    .home-hero h1 {
+        font-size: 42px;
+
+        letter-spacing: -1.5px;
+    }
+
+    .home-description {
+        font-size: 14px;
+    }
+
+
+    /* Buttons */
+
+    .home-buttons {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .primary-home-button,
+    .secondary-home-button {
+        width: 100%;
+    }
+
+
+    /* Stats */
+
+    .home-stats {
+        flex-wrap: wrap;
+
+        gap: 20px;
+    }
+
+    .home-stat {
+        min-width: 90px;
+
+        padding-right: 15px;
+
+        margin-right: 0;
+    }
+
+
+    /* Parking */
+
+    .parking-preview {
+        padding: 20px;
+    }
+
+    .parking-grid {
+        gap: 8px;
+    }
+
+    .parking-slot {
+        height: 85px;
+    }
+
+
+    /* Features */
+
+    .home-features {
+        padding: 65px 20px;
+    }
+
+    .features-heading h2 {
+        font-size: 30px;
+    }
+
+    .home-feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* About */
+
+    .home-about {
+        margin: 10px 20px 60px;
+
+        padding: 30px 25px;
+    }
+
+    .about-content h2 {
+        font-size: 29px;
+    }
+
+    .about-dsa {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* Footer */
+
+    .home-footer {
+        padding: 25px 20px;
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+
+    /* Dashboard */
+
+    .dashboard-header {
+        padding: 50px 20px 25px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 38px;
+    }
+
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+
+        padding: 15px 20px 60px;
+    }
+}
+/* =========================================================
+   PARK EASE DASHBOARD
+   PROFESSIONAL DARK DASHBOARD
+========================================================= */
+
+
+/* =========================================================
+   DASHBOARD PAGE
+========================================================= */
+
+.dashboard-page {
+    margin: 0;
+    padding: 0;
+
+    background: #0b0f14;
+    color: #f5f7fa;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+
+/* =========================================================
+   MAIN DASHBOARD LAYOUT
+========================================================= */
+
+.dashboard-layout {
+    min-height: 100vh;
+
+    display: flex;
+
+    background: #0b0f14;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 28px 18px;
+
+    background: #10151b;
+
+    border-right: 1px solid #252c33;
+
+    z-index: 100;
+}
+
+
+/* =========================================================
+   SIDEBAR LOGO
+========================================================= */
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 0 10px 30px;
+
+    border-bottom: 1px solid #252c33;
+}
+
+.parking-logo {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+    color: #0b0f14;
+
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.sidebar-logo h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.sidebar-logo span {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #737d87;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   SIDEBAR SECTION TITLE
+========================================================= */
+
+.sidebar-section-title {
+    margin: 28px 10px 10px;
+
+    color: #626c76;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* =========================================================
+   SIDEBAR NAVIGATION
+========================================================= */
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.sidebar-nav a {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 11px 12px;
+
+    border-radius: 8px;
+
+    color: #858f99;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    transition: all 0.25s ease;
+}
+
+.sidebar-nav a span {
+    width: 20px;
+
+    display: flex;
+    justify-content: center;
+
+    font-size: 16px;
+}
+
+.sidebar-nav a:hover {
+    background: #181e24;
+
+    color: #ffffff;
+}
+
+.sidebar-nav a.active {
+    background: #ffffff;
+
+    color: #0b0f14;
+
+    font-weight: 600;
+}
+
+.sidebar-nav a.active span {
+    color: #0b0f14;
+}
+
+
+/* =========================================================
+   SIDEBAR BOTTOM
+========================================================= */
+
+.sidebar-bottom {
+    margin-top: auto;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #252c33;
+}
+
+.sidebar-bottom a {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 11px 12px;
+
+    border-radius: 8px;
+
+    color: #777f88;
+
+    font-size: 13px;
+
+    transition: 0.25s ease;
+}
+
+.sidebar-bottom a:hover {
+    background: #181e24;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.dashboard-main {
+    width: calc(100% - 250px);
+
+    margin-left: 250px;
+
+    min-height: 100vh;
+
+    padding: 0 45px;
+
+    background:
+        radial-gradient(
+            circle at 80% 0%,
+            rgba(255, 255, 255, 0.035),
+            transparent 30%
+        ),
+        #0b0f14;
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.dashboard-topbar {
+    min-height: 95px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    border-bottom: 1px solid #252c33;
+}
+
+.breadcrumb {
+    margin-bottom: 5px;
+
+    color: #646e78;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+}
+
+.dashboard-topbar h1 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 28px;
+    font-weight: 700;
+
+    letter-spacing: -0.5px;
+}
+
+
+/* =========================================================
+   ADMIN PROFILE
+========================================================= */
+
+.admin-profile {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+}
+
+.admin-avatar {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    color: #0b0f14;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.admin-profile strong {
+    display: block;
+
+    color: #e9edf0;
+
+    font-size: 12px;
+}
+
+.admin-profile small {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #69737d;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   WELCOME SECTION
+========================================================= */
+
+.dashboard-welcome {
+    margin-top: 28px;
+
+    padding: 28px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    background: #11171d;
+
+    border: 1px solid #282f36;
+
+    border-radius: 12px;
+}
+
+.welcome-label {
+    color: #68727c;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.dashboard-welcome h2 {
+    margin-top: 7px;
+
+    color: #ffffff;
+
+    font-size: 25px;
+}
+
+.dashboard-welcome p {
+    margin-top: 7px;
+
+    color: #7d8790;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   SYSTEM STATUS
+========================================================= */
+
+.date-box {
+    min-width: 145px;
+
+    padding-left: 25px;
+
+    border-left: 1px solid #2a3138;
+}
+
+.date-box span {
+    display: block;
+
+    color: #646e78;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+}
+
+.date-box strong {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #dce2e6;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   STATISTICS
+========================================================= */
+
+.statistics {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 14px;
+
+    margin-top: 18px;
+}
+
+.stat-card {
+    min-height: 120px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 21px;
+
+    background: #11171d;
+
+    border: 1px solid #282f36;
+
+    border-radius: 11px;
+
+    transition: 0.25s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+
+    border-color: #414a53;
+}
+
+
+/* Stat Icons */
+
+.stat-icon {
+    width: 43px;
+    height: 43px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #181e24;
+
+    border: 1px solid #303840;
+
+    font-size: 17px;
+}
+
+.stat-icon.blue,
+.stat-icon.green,
+.stat-icon.orange,
+.stat-icon.purple {
+    color: #ffffff;
+}
+
+
+/* Stat Text */
+
+.stat-card > div:last-child span {
+    display: block;
+
+    color: #77818b;
+
+    font-size: 10px;
+}
+
+.stat-card h3 {
+    margin-top: 2px;
+
+    color: #ffffff;
+
+    font-size: 24px;
+}
+
+.stat-card small {
+    display: block;
+
+    margin-top: 1px;
+
+    color: #59636d;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.section-heading {
+    margin-top: 45px;
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+.section-heading span {
+    color: #69737c;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.section-heading h2 {
+    margin-top: 6px;
+
+    color: #ffffff;
+
+    font-size: 22px;
+}
+
+.section-heading p {
+    color: #69737c;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   MODULE GRID
+========================================================= */
+
+.module-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 14px;
+}
+
+
+/* =========================================================
+   MODULE CARD
+========================================================= */
+
+.module-card {
+    min-height: 245px;
+
+    padding: 24px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #11171d;
+
+    border: 1px solid #282f36;
+
+    border-radius: 11px;
+
+    transition: all 0.25s ease;
+}
+
+.module-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #48515a;
+
+    background: #141a20;
+}
+
+
+/* Module Top */
+
+.module-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.module-icon {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: #181e24;
+
+    border: 1px solid #323a42;
+
+    color: #ffffff;
+
+    font-size: 19px;
+}
+
+.module-number {
+    color: #4e5862;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+/* Module Content */
+
+.module-card h3 {
+    margin-top: 22px;
+
+    color: #ffffff;
+
+    font-size: 16px;
+}
+
+.module-card p {
+    min-height: 44px;
+
+    margin-top: 8px;
+
+    color: #78828c;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+/* Module Button */
+
+.module-card button {
+    width: fit-content;
+
+    margin-top: auto;
+
+    padding: 9px 13px;
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: 12px;
+
+    border: 1px solid #353e47;
+
+    border-radius: 7px;
+
+    background: #171d23;
+
+    color: #dce1e5;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    transition: 0.25s ease;
+}
+
+.module-card button span {
+    font-size: 15px;
+}
+
+.module-card button:hover {
+    background: #ffffff;
+
+    color: #0b0f14;
+
+    border-color: #ffffff;
+}
+
+
+/* =========================================================
+   DSA INFORMATION PANEL
+========================================================= */
+
+.algorithm-panel {
+    margin-top: 35px;
+
+    padding: 25px;
+
+    background: #11171d;
+
+    border: 1px solid #282f36;
+
+    border-radius: 12px;
+}
+
+.algorithm-title {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #252c33;
+}
+
+.algorithm-title > span {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #0b0f14;
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.algorithm-title h3 {
+    color: #ffffff;
+
+    font-size: 15px;
+}
+
+.algorithm-title p {
+    margin-top: 3px;
+
+    color: #69737d;
+
+    font-size: 10px;
+}
+
+
+/* Algorithm List */
+
+.algorithm-list {
+    display: grid;
+
+    grid-template-columns: repeat(6, 1fr);
+
+    gap: 10px;
+
+    margin-top: 18px;
+}
+
+.algorithm-list > div {
+    padding: 14px;
+
+    background: #151b21;
+
+    border: 1px solid #252d35;
+
+    border-radius: 8px;
+}
+
+.algorithm-list strong {
+    display: block;
+
+    color: #e4e8eb;
+
+    font-size: 10px;
+}
+
+.algorithm-list span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #68727c;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.dashboard-footer {
+    margin-top: 45px;
+
+    padding: 25px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-top: 1px solid #252c33;
+
+    color: #59636d;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .dashboard-main {
+        padding: 0 30px;
+    }
+
+    .statistics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .module-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .algorithm-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .sidebar {
+        width: 210px;
+    }
+
+    .dashboard-main {
+        width: calc(100% - 210px);
+
+        margin-left: 210px;
+
+        padding: 0 22px;
+    }
+
+    .dashboard-welcome {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .date-box {
+        width: 100%;
+
+        padding-left: 0;
+        padding-top: 15px;
+
+        border-left: none;
+        border-top: 1px solid #2a3138;
+    }
+
+    .algorithm-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .dashboard-layout {
+        display: block;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+
+        position: relative;
+
+        padding: 18px;
+
+        border-right: none;
+        border-bottom: 1px solid #252c33;
+    }
+
+    .sidebar-logo {
+        padding-bottom: 18px;
+    }
+
+    .sidebar-section-title {
+        margin-top: 18px;
+    }
+
+    .sidebar-nav {
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sidebar-bottom {
+        margin-top: 15px;
+    }
+
+    .dashboard-main {
+        width: 100%;
+
+        margin-left: 0;
+
+        padding: 0 18px;
+    }
+
+    .dashboard-topbar {
+        padding: 25px 0;
+
+        min-height: auto;
+
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .statistics {
+        grid-template-columns: 1fr;
+    }
+
+    .module-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .algorithm-list {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .dashboard-footer {
+        flex-direction: column;
+
+        text-align: center;
+    }
+}
+/* ============================================================
+   VEHICLE MANAGEMENT PAGE
+   ============================================================ */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #080d13;
+    color: #f5f7fa;
+}
+
+/* Header */
+
+header {
+    height: 70px;
+    background: #101720;
+    border-bottom: 1px solid #26313d;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    box-sizing: border-box;
+}
+
+header .logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+header nav {
+    display: flex;
+    gap: 30px;
+}
+
+header nav a {
+    color: #9da9b6;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+header nav a:hover {
+    color: #ffffff;
+}
+
+/* Main */
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 55px 0;
+}
+
+/* Page Heading */
+
+.dashboard-header {
+    margin-bottom: 35px;
+}
+
+.dashboard-header .subtitle {
+    color: #6ea8fe;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.dashboard-header h1 {
+    font-size: 42px;
+    margin: 0 0 12px;
+    color: #ffffff;
+}
+
+.dashboard-header p:last-child {
+    color: #8f9baa;
+    font-size: 16px;
+}
+
+/* Vehicle Form */
+
+.vehicle-form {
+    background: #111923;
+    border: 1px solid #26313d;
+    border-radius: 14px;
+    padding: 30px;
+    margin-bottom: 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.vehicle-form form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.vehicle-form label {
+    color: #cbd5df;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: -12px;
+}
+
+.vehicle-form input,
+.vehicle-form select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 15px;
+    background: #0b1118;
+    border: 1px solid #303c49;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+}
+
+.vehicle-form input:focus,
+.vehicle-form select:focus {
+    border-color: #5b9cff;
+}
+
+.vehicle-form select {
+    cursor: pointer;
+}
+
+.vehicle-form button {
+    grid-column: 1 / -1;
+    width: 180px;
+    padding: 13px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #3d8bfd;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.vehicle-form button:hover {
+    background: #2675df;
+    transform: translateY(-1px);
+}
+
+/* Vehicle Records */
+
+.vehicle-records {
+    background: #111923;
+    border: 1px solid #26313d;
+    border-radius: 14px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.vehicle-records h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 22px;
+    color: #ffffff;
+}
+
+.vehicle-records table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.vehicle-records th {
+    text-align: left;
+    padding: 15px;
+    background: #18222d;
+    color: #8fb7e8;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.vehicle-records td {
+    padding: 16px 15px;
+    border-bottom: 1px solid #26313d;
+    color: #d9e0e7;
+    font-size: 14px;
+}
+
+.vehicle-records tr:hover td {
+    background: #151f29;
+}
+
+.empty-message {
+    color: #8f9baa;
+    text-align: center;
+    padding: 30px;
+}
+
+/* Footer */
+
+footer {
+    border-top: 1px solid #26313d;
+    padding: 25px;
+    text-align: center;
+    color: #697684;
+    font-size: 13px;
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 0 20px;
+    }
+
+    header nav {
+        gap: 12px;
+    }
+
+    header nav a {
+        font-size: 13px;
+    }
+
+    main {
+        width: 92%;
+        padding: 35px 0;
+    }
+
+    .dashboard-header h1 {
+        font-size: 32px;
+    }
+
+    .vehicle-form form {
+        grid-template-columns: 1fr;
+    }
+
+    .vehicle-form button {
+        width: 100%;
+    }
+
+    .vehicle-records {
+        overflow-x: auto;
+    }
+
+    .vehicle-records table {
+        min-width: 700px;
+    }
+}
+/* ============================================================
+   PARKING SLOTS PAGE
+   ============================================================ */
+
+.slot-message {
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.slot-message.success {
+    background: rgba(34, 197, 94, 0.12);
+    border: 1px solid rgba(34, 197, 94, 0.35);
+    color: #65e69a;
+}
+
+.slot-message.error {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    color: #ff8585;
+}
+
+
+/* Park Vehicle Form */
+
+.slot-form {
+    background: #111923;
+    border: 1px solid #26313d;
+    border-radius: 14px;
+    padding: 30px;
+    margin-bottom: 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.slot-form h2 {
+    margin: 0 0 10px;
+    font-size: 22px;
+    color: #ffffff;
+}
+
+.slot-form p {
+    color: #8f9baa;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.slot-form form {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.slot-form label {
+    color: #cbd5df;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.slot-form input {
+    width: 240px;
+    padding: 13px 15px;
+    box-sizing: border-box;
+    background: #0b1118;
+    border: 1px solid #303c49;
+    border-radius: 8px;
+    color: #ffffff;
+    outline: none;
+}
+
+.slot-form input:focus {
+    border-color: #5b9cff;
+}
+
+.slot-form button {
+    padding: 13px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #3d8bfd;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.slot-form button:hover {
+    background: #2675df;
+    transform: translateY(-1px);
+}
+
+
+/* Parking Slot Section */
+
+.slot-section {
+    background: #111923;
+    border: 1px solid #26313d;
+    border-radius: 14px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.slot-section h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #ffffff;
+    font-size: 22px;
+}
+
+
+/* Slot Grid */
+
+.slot-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+}
+
+
+/* Individual Slot */
+
+.slot-card {
+    background: #0b1118;
+    border: 1px solid #303c49;
+    border-radius: 12px;
+    padding: 22px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.slot-card:hover {
+    transform: translateY(-3px);
+    border-color: #4b5d70;
+}
+
+.slot-card.available {
+    border-top: 3px solid #22c55e;
+}
+
+.slot-card.occupied {
+    border-top: 3px solid #ef4444;
+}
+
+.slot-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.slot-card h3 {
+    margin: 5px 0 8px;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.slot-status {
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.slot-card.available .slot-status {
+    color: #4ade80;
+}
+
+.slot-card.occupied .slot-status {
+    color: #f87171;
+}
+
+.slot-card p {
+    color: #8996a4;
+    font-size: 13px;
+}
+
+.slot-card strong {
+    color: #ffffff;
+}
+
+
+/* Release Button */
+
+.release-button {
+    width: 100%;
+    margin-top: 12px;
+    padding: 9px 12px;
+    border: 1px solid #7f3030;
+    border-radius: 7px;
+    background: rgba(239, 68, 68, 0.1);
+    color: #ff8585;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.release-button:hover {
+    background: rgba(239, 68, 68, 0.2);
+}
+
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+    .slot-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .slot-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .slot-form form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .slot-form input {
+        width: 100%;
+    }
+
+    .slot-form button {
+        width: 100%;
+    }
+}
+/* ============================================================
+   SEARCH VEHICLE PAGE
+   ============================================================ */
+
+.search-form {
+    background: #111923;
+    border: 1px solid #26313d;
+    border-radius: 14px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.search-form h2 {
+    margin: 0 0 10px;
+    font-size: 22px;
+    color: #ffffff;
+}
+
+.search-form p {
+    color: #8f9baa;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.search-form form {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.search-form label {
+    color: #cbd5df;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.search-form input {
+    width: 260px;
+    padding: 13px 15px;
+    box-sizing: border-box;
+    background: #0b1118;
+    border: 1px solid #303c49;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+}
+
+.search-form input::placeholder {
+    color: #667382;
+}
+
+.search-form input:focus {
+    border-color: #5b9cff;
+}
+
+.search-form button {
+    padding: 13px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #3d8bfd;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search-form button:hover {
+    background: #2675df;
+    transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   SEARCH RESULT
+   ============================================================ */
+
+.search-result {
+    background: #111923;
+    border: 1px solid #26313d;
+    border-radius: 14px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.search-result h2 {
+    margin-top: 0;
+    margin-bottom: 22px;
+    color: #65e69a;
+    font-size: 20px;
+}
+
+.result-card {
+    background: #0b1118;
+    border: 1px solid #303c49;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.result-card p {
+    margin: 12px 0;
+    color: #aeb9c5;
+    font-size: 14px;
+}
+
+.result-card strong {
+    color: #ffffff;
+}
+
+
+/* ============================================================
+   VEHICLE NOT FOUND MESSAGE
+   ============================================================ */
+
+.search-message {
+    background: rgba(239, 68, 68, 0.10);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    border-radius: 10px;
+    padding: 16px 20px;
+    color: #ff8585;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+    .search-form form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-form input {
+        width: 100%;
+    }
+
+    .search-form button {
+        width: 100%;
+    }
+}
+/* ============================================================
+   SORT RECORDS PAGE
+   ============================================================ */
+
+.sort-form {
+    background: #111923;
+    border: 1px solid #26313d;
+    border-radius: 14px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.sort-form h2 {
+    margin: 0 0 10px;
+    color: #ffffff;
+    font-size: 22px;
+}
+
+.sort-form p {
+    color: #8f9baa;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.sort-form form {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.sort-form label {
+    color: #cbd5df;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.sort-form select {
+    min-width: 220px;
+    padding: 12px 14px;
+    background: #0b1118;
+    border: 1px solid #303c49;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+}
+
+.sort-form select:focus {
+    border-color: #5b9cff;
+}
+
+.sort-form button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #3d8bfd;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sort-form button:hover {
+    background: #2675df;
+    transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   SORT RESULTS
+   ============================================================ */
+
+.sort-results {
+    background: #111923;
+    border: 1px solid #26313d;
+    border-radius: 14px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.sort-result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.result-label {
+    color: #5b9cff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 0 0 6px;
+}
+
+.sort-result-header h2 {
+    color: #ffffff;
+    font-size: 22px;
+    margin: 0;
+}
+
+.record-count {
+    padding: 8px 14px;
+    background: rgba(61, 139, 253, 0.12);
+    border: 1px solid rgba(61, 139, 253, 0.3);
+    border-radius: 20px;
+    color: #73aaff;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* ============================================================
+   SORT TABLE
+   ============================================================ */
+
+.table-container {
+    overflow-x: auto;
+}
+
+.sort-results table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.sort-results th {
+    background: #0b1118;
+    color: #8fa2b5;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #303c49;
+}
+
+.sort-results td {
+    padding: 16px 15px;
+    color: #d8e0e8;
+    font-size: 14px;
+    border-bottom: 1px solid #202b36;
+}
+
+.sort-results tbody tr:hover {
+    background: rgba(61, 139, 253, 0.05);
+}
+
+.sort-results td:first-child {
+    color: #72aaff;
+    font-weight: 700;
+}
+
+
+/* ============================================================
+   EMPTY SORT MESSAGE
+   ============================================================ */
+
+.sort-empty {
+    background: #111923;
+    border: 1px solid #26313d;
+    border-radius: 14px;
+    padding: 45px 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.empty-icon {
+    width: 55px;
+    height: 55px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: rgba(61, 139, 253, 0.12);
+    color: #5b9cff;
+    font-size: 28px;
+}
+
+.sort-empty h2 {
+    color: #ffffff;
+    margin: 0 0 10px;
+    font-size: 21px;
+}
+
+.sort-empty p {
+    color: #8f9baa;
+    font-size: 14px;
+    margin: 0;
+}
+
+
+/* ============================================================
+   SORTING ALGORITHM INFORMATION
+   ============================================================ */
+
+.sorting-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.algorithm-info-card {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    background: #111923;
+    border: 1px solid #26313d;
+    border-radius: 14px;
+    padding: 25px;
+    transition: 0.3s;
+}
+
+.algorithm-info-card:hover {
+    border-color: #3d8bfd;
+    transform: translateY(-2px);
+}
+
+.algorithm-info-icon {
+    min-width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(61, 139, 253, 0.12);
+    border: 1px solid rgba(61, 139, 253, 0.25);
+    border-radius: 10px;
+    color: #5b9cff;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.algorithm-info-card h3 {
+    color: #ffffff;
+    font-size: 18px;
+    margin: 0 0 8px;
+}
+
+.algorithm-info-card p {
+    color: #8f9baa;
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 0 0 12px;
+}
+
+.algorithm-info-card span {
+    color: #65e69a;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+    .sorting-info {
+        grid-template-columns: 1fr;
+    }
+
+    .sort-form form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .sort-form select,
+    .sort-form button {
+        width: 100%;
+    }
+
+    .sort-result-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+/* ============================================================
+   WAITING VEHICLES / QUEUE PAGE
+   ============================================================ */
+
+.queue-message {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 18px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid;
+}
+
+.queue-message.success {
+    background: rgba(40, 200, 120, 0.10);
+    border-color: rgba(40, 200, 120, 0.35);
+    color: #63e6a1;
+}
+
+.queue-message.error {
+    background: rgba(255, 80, 80, 0.10);
+    border-color: rgba(255, 80, 80, 0.35);
+    color: #ff8585;
+}
+
+
+/* ============================================================
+   QUEUE FORM
+   ============================================================ */
+
+.queue-form {
+    background: #111923;
+    border: 1px solid #26313d;
+    border-radius: 14px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.queue-form h2 {
+    margin: 0 0 10px;
+    color: #ffffff;
+    font-size: 22px;
+}
+
+.queue-form p {
+    margin: 0 0 25px;
+    color: #8f9baa;
+    font-size: 14px;
+}
+
+.queue-form form {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.queue-form label {
+    color: #cbd5df;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.queue-form input {
+    width: 260px;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    background: #0b1118;
+    border: 1px solid #303c49;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+}
+
+.queue-form input::placeholder {
+    color: #667585;
+}
+
+.queue-form input:focus {
+    border-color: #5b9cff;
+}
+
+.queue-form button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #3d8bfd;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.queue-form button:hover {
+    background: #2675df;
+    transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   QUEUE SECTION
+   ============================================================ */
+
+.queue-section {
+    background: #111923;
+    border: 1px solid #26313d;
+    border-radius: 14px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.queue-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.queue-label {
+    color: #5b9cff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 0 0 6px;
+}
+
+.queue-heading h2 {
+    color: #ffffff;
+    font-size: 22px;
+    margin: 0;
+}
+
+.queue-count {
+    padding: 8px 15px;
+    background: rgba(61, 139, 253, 0.12);
+    border: 1px solid rgba(61, 139, 253, 0.3);
+    border-radius: 20px;
+    color: #73aaff;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+
+/* ============================================================
+   QUEUE CARDS
+   ============================================================ */
+
+.queue-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.queue-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 17px 20px;
+    background: #0b1118;
+    border: 1px solid #26313d;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.queue-card:hover {
+    border-color: #3d8bfd;
+    transform: translateX(3px);
+}
+
+.queue-position {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(61, 139, 253, 0.12);
+    border: 1px solid rgba(61, 139, 253, 0.3);
+    border-radius: 9px;
+    color: #6da7ff;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.queue-vehicle {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.queue-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #151f2a;
+    border-radius: 10px;
+    font-size: 21px;
+}
+
+.queue-vehicle strong {
+    display: block;
+    color: #ffffff;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.queue-vehicle small {
+    display: block;
+    color: #8492a2;
+    font-size: 12px;
+}
+
+.queue-card:first-child {
+    border-color: rgba(61, 139, 253, 0.45);
+    background: rgba(61, 139, 253, 0.06);
+}
+
+.queue-card:first-child .queue-position {
+    background: rgba(70, 220, 140, 0.12);
+    border-color: rgba(70, 220, 140, 0.3);
+    color: #64e5a0;
+}
+
+
+/* ============================================================
+   DEQUEUE BUTTON
+   ============================================================ */
+
+.dequeue-form {
+    margin-top: 22px;
+}
+
+.dequeue-form button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #1f9d67;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dequeue-form button:hover {
+    background: #178354;
+    transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   EMPTY QUEUE
+   ============================================================ */
+
+.queue-empty {
+    padding: 55px 30px;
+    text-align: center;
+    background: #0b1118;
+    border: 1px dashed #303c49;
+    border-radius: 12px;
+}
+
+.queue-empty-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(61, 139, 253, 0.10);
+    border: 1px solid rgba(61, 139, 253, 0.25);
+    border-radius: 14px;
+    color: #5b9cff;
+    font-size: 28px;
+}
+
+.queue-empty h2 {
+    color: #ffffff;
+    font-size: 21px;
+    margin: 0 0 10px;
+}
+
+.queue-empty p {
+    color: #7f8b99;
+    font-size: 14px;
+    margin: 0;
+}
+
+
+/* ============================================================
+   QUEUE INFORMATION
+   ============================================================ */
+
+.queue-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.queue-info-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 25px;
+    background: #111923;
+    border: 1px solid #26313d;
+    border-radius: 14px;
+    transition: 0.3s;
+}
+
+.queue-info-card:hover {
+    border-color: #3d8bfd;
+    transform: translateY(-2px);
+}
+
+.queue-info-icon {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(61, 139, 253, 0.12);
+    border: 1px solid rgba(61, 139, 253, 0.25);
+    border-radius: 10px;
+    color: #5b9cff;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.queue-info-card h3 {
+    color: #ffffff;
+    font-size: 17px;
+    margin: 0 0 8px;
+}
+
+.queue-info-card p {
+    color: #8f9baa;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+    .queue-form form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .queue-form input,
+    .queue-form button {
+        width: 100%;
+    }
+
+    .queue-heading {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .queue-info {
+        grid-template-columns: 1fr;
+    }
+
+    .queue-card {
+        padding: 14px;
+    }
+}
+/* ============================================================
+   PARKING FEES PAGE
+   ============================================================ */
+
+.fee-form {
+    background: #111923;
+    border: 1px solid #26313d;
+    border-radius: 14px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.fee-form h2 {
+    margin: 0 0 10px;
+    color: #ffffff;
+    font-size: 22px;
+}
+
+.fee-form p {
+    margin: 0 0 25px;
+    color: #8f9baa;
+    font-size: 14px;
+}
+
+.fee-form form {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.fee-form label {
+    color: #cbd5df;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.fee-form input {
+    width: 220px;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    background: #0b1118;
+    border: 1px solid #303c49;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+}
+
+.fee-form input:focus {
+    border-color: #5b9cff;
+}
+
+.fee-form button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #3d8bfd;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.fee-form button:hover {
+    background: #2675df;
+    transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   FEE RESULT
+   ============================================================ */
+
+.fee-result {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background: #111923;
+    border: 1px solid rgba(61, 139, 253, 0.35);
+    border-radius: 14px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.fee-result-icon {
+    width: 75px;
+    height: 75px;
+    min-width: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(70, 220, 140, 0.12);
+    border: 1px solid rgba(70, 220, 140, 0.3);
+    border-radius: 16px;
+    color: #64e5a0;
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.fee-label {
+    color: #5b9cff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 0 0 5px;
+}
+
+.fee-result-content h2 {
+    color: #ffffff;
+    font-size: 34px;
+    margin: 0 0 20px;
+}
+
+.fee-details {
+    display: flex;
+    gap: 35px;
+    flex-wrap: wrap;
+}
+
+.fee-details div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.fee-details span {
+    color: #7f8d9d;
+    font-size: 12px;
+}
+
+.fee-details strong {
+    color: #dce4ec;
+    font-size: 14px;
+}
+
+
+/* ============================================================
+   FEE INFORMATION
+   ============================================================ */
+
+.fee-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.fee-info-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 25px;
+    background: #111923;
+    border: 1px solid #26313d;
+    border-radius: 14px;
+    transition: 0.3s;
+}
+
+.fee-info-card:hover {
+    border-color: #3d8bfd;
+    transform: translateY(-2px);
+}
+
+.fee-info-icon {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(61, 139, 253, 0.12);
+    border: 1px solid rgba(61, 139, 253, 0.25);
+    border-radius: 10px;
+    color: #5b9cff;
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.fee-info-card h3 {
+    color: #ffffff;
+    font-size: 17px;
+    margin: 0 0 8px;
+}
+
+.fee-info-card p {
+    color: #8f9baa;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+    .fee-form form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .fee-form input,
+    .fee-form button {
+        width: 100%;
+    }
+
+    .fee-result {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .fee-info {
+        grid-template-columns: 1fr;
+    }
+
+    .fee-details {
+        gap: 20px;
+    }
+}
+/* ============================================================
+   PAYMENT BUTTON
+   ============================================================ */
+
+.pay-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 24px;
+
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #ffffff;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+
+    box-shadow: 0 6px 15px rgba(37, 99, 235, 0.25);
+}
+
+.pay-button:hover {
+    transform: translateY(-2px);
+
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+
+.pay-button:active {
+    transform: translateY(0);
+}
+/* ============================================================
+   PARKING FEES - PAYMENT
+   ============================================================ */
+
+.calculate-button {
+    margin-top: 10px;
+    padding: 12px 22px;
+
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.calculate-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.30);
+}
+
+
+/* PAYMENT SECTION */
+
+.payment-section {
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #263241;
+}
+
+
+.payment-label {
+    margin-bottom: 12px;
+
+    color: #f59e0b;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+/* PAY BUTTON */
+
+.pay-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 28px;
+
+    background: linear-gradient(
+        135deg,
+        #16a34a,
+        #15803d
+    );
+
+    color: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+
+    box-shadow:
+        0 6px 16px rgba(22, 163, 74, 0.25);
+}
+
+
+.pay-button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 9px 22px rgba(22, 163, 74, 0.35);
+}
+
+
+.pay-button:active {
+
+    transform: translateY(0);
+
+}
+
+
+/* PAYMENT SUCCESS */
+
+.payment-success {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 25px;
+
+    padding: 16px 20px;
+
+    background: rgba(22, 163, 74, 0.10);
+
+    border: 1px solid rgba(22, 163, 74, 0.40);
+
+    border-radius: 10px;
+}
+
+
+.success-icon {
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #16a34a;
+
+    color: white;
+
+    font-size: 23px;
+    font-weight: bold;
+}
+
+
+.payment-success strong {
+
+    display: block;
+
+    color: #4ade80;
+
+    font-size: 16px;
+
+    margin-bottom: 4px;
+}
+
+
+.payment-success span {
+
+    display: block;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+
+}
+/* ============================================================
+   PARKING SLOTS PAGE
+   ============================================================ */
+
+.slot-form,
+.parking-slots-section,
+.stack-section,
+.algorithm-info {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto 32px;
+}
+
+
+/* ============================================================
+   SECTION TITLE
+   ============================================================ */
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.section-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: rgba(59, 130, 246, 0.12);
+    border: 1px solid rgba(59, 130, 246, 0.25);
+
+    font-size: 22px;
+}
+
+.section-title h2 {
+    margin: 0 0 5px;
+
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.section-title p {
+    margin: 0;
+
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+
+/* ============================================================
+   PARK VEHICLE FORM
+   ============================================================ */
+
+.slot-form {
+    padding: 30px;
+
+    background: #111923;
+
+    border: 1px solid #263342;
+
+    border-radius: 16px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.slot-form form {
+    width: 100%;
+}
+
+.form-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+
+    margin-top: 10px;
+}
+
+.form-group {
+    flex: 1;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: #e2e8f0;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 14px 16px;
+
+    background: #080f17;
+
+    color: #f8fafc;
+
+    border: 1px solid #334155;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    transition: 0.2s ease;
+}
+
+.form-group input::placeholder {
+    color: #64748b;
+}
+
+.form-group input:focus {
+    border-color: #3b82f6;
+
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+
+/* ============================================================
+   ALLOCATE BUTTON
+   ============================================================ */
+
+.parking-action-button {
+    min-height: 48px;
+
+    padding: 0 24px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #3b82f6;
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+
+    white-space: nowrap;
+}
+
+.parking-action-button:hover {
+    background: #2563eb;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+
+/* ============================================================
+   ALGORITHM NOTE
+   ============================================================ */
+
+.algorithm-note {
+    margin-top: 20px;
+
+    padding: 14px 16px;
+
+    background: rgba(59, 130, 246, 0.07);
+
+    border-left: 3px solid #3b82f6;
+
+    border-radius: 8px;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+.algorithm-note strong {
+    color: #60a5fa;
+}
+
+
+/* ============================================================
+   PARKING SLOT SECTION
+   ============================================================ */
+
+.parking-slots-section {
+    padding: 30px;
+
+    background: #111923;
+
+    border: 1px solid #263342;
+
+    border-radius: 16px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+
+/* ============================================================
+   SLOT GRID
+   ============================================================ */
+
+.slot-grid {
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 18px;
+}
+
+
+/* ============================================================
+   SLOT CARD
+   ============================================================ */
+
+.parking-slot-card {
+    position: relative;
+
+    min-height: 220px;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    background: #0b121b;
+
+    border-radius: 14px;
+
+    border: 1px solid #263342;
+
+    transition: all 0.25s ease;
+
+    overflow: hidden;
+}
+
+.parking-slot-card:hover {
+    transform: translateY(-3px);
+
+    border-color: #475569;
+
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Available card */
+
+.parking-slot-card.available {
+    border-top: 3px solid #22c55e;
+}
+
+
+/* Occupied card */
+
+.parking-slot-card.occupied {
+    border-top: 3px solid #f97316;
+}
+
+
+/* ============================================================
+   SLOT HEADER
+   ============================================================ */
+
+.slot-card-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 8px;
+}
+
+.slot-number {
+    font-size: 20px;
+
+    font-weight: 800;
+
+    color: #f8fafc;
+}
+
+.slot-status {
+    padding: 5px 8px;
+
+    border-radius: 6px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+}
+
+.available-status {
+    background: rgba(34, 197, 94, 0.12);
+
+    color: #4ade80;
+}
+
+.occupied-status {
+    background: rgba(249, 115, 22, 0.12);
+
+    color: #fb923c;
+}
+
+
+/* ============================================================
+   SLOT ICON
+   ============================================================ */
+
+.slot-icon {
+    width: 58px;
+    height: 58px;
+
+    margin: 25px auto 18px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: rgba(59, 130, 246, 0.12);
+
+    border: 1px solid rgba(59, 130, 246, 0.2);
+
+    font-size: 28px;
+}
+
+
+/* ============================================================
+   VEHICLE INFORMATION
+   ============================================================ */
+
+.slot-vehicle {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    text-align: center;
+
+    margin-bottom: 15px;
+}
+
+.slot-vehicle span {
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+.slot-vehicle strong {
+    color: #f8fafc;
+
+    font-size: 14px;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* ============================================================
+   EMPTY SLOT
+   ============================================================ */
+
+.slot-empty {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    color: #64748b;
+
+    text-align: center;
+}
+
+.slot-empty span {
+    font-size: 13px;
+}
+
+.slot-empty small {
+    color: #475569;
+
+    font-size: 11px;
+}
+
+
+/* ============================================================
+   RELEASE BUTTON
+   ============================================================ */
+
+.release-button {
+    width: 100%;
+
+    padding: 9px 12px;
+
+    border: 1px solid rgba(249, 115, 22, 0.3);
+
+    border-radius: 8px;
+
+    background: rgba(249, 115, 22, 0.08);
+
+    color: #fb923c;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.release-button:hover {
+    background: rgba(249, 115, 22, 0.16);
+
+    border-color: rgba(249, 115, 22, 0.5);
+}
+
+
+/* ============================================================
+   MESSAGE
+   ============================================================ */
+
+.slot-message {
+    max-width: 1180px;
+
+    margin: 0 auto 25px;
+
+    padding: 14px 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.slot-message.success {
+    background: rgba(34, 197, 94, 0.10);
+
+    border: 1px solid rgba(34, 197, 94, 0.25);
+
+    color: #4ade80;
+}
+
+.slot-message.error {
+    background: rgba(239, 68, 68, 0.10);
+
+    border: 1px solid rgba(239, 68, 68, 0.25);
+
+    color: #f87171;
+}
+
+
+/* ============================================================
+   STACK SECTION
+   ============================================================ */
+
+.stack-section {
+    padding: 30px;
+
+    background: #111923;
+
+    border: 1px solid #263342;
+
+    border-radius: 16px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.stack-container {
+    display: grid;
+
+    grid-template-columns: 1fr 1.2fr;
+
+    gap: 25px;
+}
+
+
+/* Stack information */
+
+.stack-information {
+    padding: 24px;
+
+    background: #0b121b;
+
+    border: 1px solid #263342;
+
+    border-radius: 14px;
+}
+
+.stack-badge {
+    display: inline-block;
+
+    padding: 6px 10px;
+
+    margin-bottom: 15px;
+
+    background: rgba(168, 85, 247, 0.12);
+
+    border: 1px solid rgba(168, 85, 247, 0.25);
+
+    color: #c084fc;
+
+    border-radius: 6px;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+.stack-information h3 {
+    margin: 0 0 10px;
+
+    color: #f8fafc;
+
+    font-size: 18px;
+}
+
+.stack-information p {
+    margin: 0 0 22px;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* ============================================================
+   UNDO BUTTON
+   ============================================================ */
+
+.undo-button {
+    width: 100%;
+
+    padding: 13px 18px;
+
+    border: 1px solid rgba(168, 85, 247, 0.35);
+
+    border-radius: 9px;
+
+    background: rgba(168, 85, 247, 0.10);
+
+    color: #c084fc;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.undo-button:hover:not(:disabled) {
+    background: rgba(168, 85, 247, 0.18);
+
+    border-color: rgba(168, 85, 247, 0.55);
+
+    transform: translateY(-1px);
+}
+
+.undo-button:disabled {
+    opacity: 0.35;
+
+    cursor: not-allowed;
+}
+
+
+/* ============================================================
+   STACK RECORDS
+   ============================================================ */
+
+.stack-records {
+    padding: 24px;
+
+    background: #0b121b;
+
+    border: 1px solid #263342;
+
+    border-radius: 14px;
+}
+
+.stack-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-bottom: 15px;
+
+    margin-bottom: 15px;
+
+    border-bottom: 1px solid #263342;
+}
+
+.stack-header span {
+    color: #94a3b8;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.stack-header strong {
+    min-width: 28px;
+
+    height: 28px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(168, 85, 247, 0.15);
+
+    color: #c084fc;
+
+    font-size: 12px;
+}
+
+
+/* Stack item */
+
+.stack-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.stack-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 13px;
+
+    background: #111923;
+
+    border: 1px solid #263342;
+
+    border-radius: 9px;
+}
+
+.stack-position {
+    min-width: 42px;
+
+    padding: 5px;
+
+    text-align: center;
+
+    border-radius: 5px;
+
+    background: rgba(168, 85, 247, 0.10);
+
+    color: #c084fc;
+
+    font-size: 9px;
+
+    font-weight: 800;
+}
+
+.stack-operation {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.stack-operation strong {
+    color: #f8fafc;
+
+    font-size: 13px;
+}
+
+.stack-operation span {
+    color: #64748b;
+
+    font-size: 11px;
+}
+
+
+/* ============================================================
+   EMPTY STACK
+   ============================================================ */
+
+.stack-empty {
+    min-height: 150px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+.stack-empty-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 10px;
+
+    border-radius: 50%;
+
+    background: rgba(100, 116, 139, 0.10);
+
+    color: #64748b;
+
+    font-size: 20px;
+}
+
+.stack-empty p {
+    margin: 0 0 5px;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+}
+
+.stack-empty small {
+    color: #475569;
+
+    font-size: 11px;
+}
+
+
+/* ============================================================
+   ALGORITHM INFORMATION
+   ============================================================ */
+
+.algorithm-info {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+.algorithm-info-card {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 16px;
+
+    padding: 22px;
+
+    background: #111923;
+
+    border: 1px solid #263342;
+
+    border-radius: 14px;
+}
+
+.algorithm-info-icon {
+    min-width: 45px;
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: rgba(59, 130, 246, 0.10);
+
+    font-size: 20px;
+}
+
+.algorithm-info-card h3 {
+    margin: 0 0 7px;
+
+    color: #f8fafc;
+
+    font-size: 15px;
+}
+
+.algorithm-info-card p {
+    margin: 0;
+
+    color: #94a3b8;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+
+@media (max-width: 1000px) {
+
+    .slot-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .stack-container {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .form-row {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .parking-action-button {
+        width: 100%;
+    }
+
+    .slot-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .algorithm-info {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .slot-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

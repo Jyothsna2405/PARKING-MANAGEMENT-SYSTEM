@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Binary Search Tree | ParkEase</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body class="dashboard-page">
+
+<div class="dashboard-layout">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <div class="parking-logo">
+                P
+            </div>
+
+            <div>
+
+                <h2>ParkEase</h2>
+
+                <span>
+                    Parking System
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-section-title">
+            MAIN MENU
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="/dashboard">
+
+                <span>▦</span>
+
+                Dashboard
+
+            </a>
+
+
+            <a href="/vehicle">
+
+                <span>🚗</span>
+
+                Vehicles
+
+            </a>
+
+
+            <a href="/parking-slots">
+
+                <span>🅿</span>
+
+                Parking Slots
+
+            </a>
+
+
+            <a href="/search-vehicle">
+
+                <span>⌕</span>
+
+                Search Vehicle
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-section-title">
+
+            DATA STRUCTURES
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="/bst" class="active">
+
+                <span>🌳</span>
+
+                Binary Search Tree
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-section-title">
+
+            OPERATIONS
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="/sort-records">
+
+                <span>⇅</span>
+
+                Sort Records
+
+            </a>
+
+
+            <a href="/waiting-vehicles">
+
+                <span>☷</span>
+
+                Waiting Vehicles
+
+            </a>
+
+
+            <a href="/parking-fees">
+
+                <span>₹</span>
+
+                Parking Fees
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="/">
+
+                <span>←</span>
+
+                Back to Home
+
+            </a>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- TOP BAR -->
+
+        <header class="dashboard-topbar">
+
+            <div>
+
+                <div class="breadcrumb">
+
+                    DATA STRUCTURES /
+                    BINARY SEARCH TREE
+
+                </div>
+
+                <h1>
+
+                    Binary Search Tree
+
+                </h1>
+
+            </div>
+
+
+            <div class="admin-profile">
+
+                <div class="admin-avatar">
+
+                    A
+
+                </div>
+
+                <div>
+
+                    <strong>
+                        Administrator
+                    </strong>
+
+                    <small>
+                        System Manager
+                    </small>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             INTRODUCTION
+        ================================================== -->
+
+        <section class="dashboard-welcome">
+
+            <div>
+
+                <span class="welcome-label">
+
+                    PHASE 2 — DATA STRUCTURE
+
+                </span>
+
+
+                <h2>
+
+                    Vehicle Binary Search Tree
+
+                </h2>
+
+
+                <p>
+
+                    Vehicle records are organized using
+                    Vehicle ID as the key. Smaller IDs
+                    are placed on the left and larger
+                    IDs are placed on the right.
+
+                </p>
+
+            </div>
+
+
+            <div class="date-box">
+
+                <span>
+
+                    STATUS
+
+                </span>
+
+
+                <strong>
+
+                    ● BST ACTIVE
+
+                </strong>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             BST SEARCH
+        ================================================== -->
+
+        <section class="vehicle-form">
+
+            <h2>
+
+                🔍 Search Vehicle using BST
+
+            </h2>
+
+
+            <p>
+
+                Search for a vehicle using its
+                Vehicle ID.
+
+            </p>
+
+
+            <form method="POST">
+
+                <input type="hidden"
+                       name="action"
+                       value="search">
+
+
+                <label for="vehicle_id">
+
+                    Vehicle ID
+
+                </label>
+
+
+                <input
+                    type="text"
+                    id="vehicle_id"
+                    name="vehicle_id"
+                    placeholder="Example: 105"
+                    required
+                >
+
+
+                <button type="submit">
+
+                    🔍 Search in BST
+
+                </button>
+
+            </form>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SEARCH MESSAGE
+        ================================================== -->
+
+        {% if search_message %}
+
+        <div class="slot-message {{ search_message_type }}">
+
+            {{ search_message }}
+
+        </div>
+
+        {% endif %}
+
+
+
+        <!-- =================================================
+             SEARCH RESULT
+        ================================================== -->
+
+        {% if search_result %}
+
+        <section class="vehicle-records">
+
+            <h2>
+
+                Search Result
+
+            </h2>
+
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            VEHICLE ID
+                        </th>
+
+                        <th>
+                            VEHICLE NUMBER
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+
+                            {{ search_result.vehicle_id }}
+
+                        </td>
+
+
+                        <td>
+
+                            {{ search_result.vehicle_number }}
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        {% endif %}
+
+
+
+        <!-- =================================================
+             BST INFORMATION
+        ================================================== -->
+
+        <section class="statistics">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+
+                    🌳
+
+                </div>
+
+                <div>
+
+                    <span>
+
+                        BST Nodes
+
+                    </span>
+
+                    <h3>
+
+                        {{ inorder|length }}
+
+                    </h3>
+
+                    <small>
+
+                        Vehicle records
+
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+
+                    ←
+
+                </div>
+
+                <div>
+
+                    <span>
+
+                        Left
+
+                    </span>
+
+                    <h3>
+
+                        Smaller
+
+                    </h3>
+
+                    <small>
+
+                        Vehicle IDs
+
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+
+                    →
+
+                </div>
+
+                <div>
+
+                    <span>
+
+                        Right
+
+                    </span>
+
+                    <h3>
+
+                        Larger
+
+                    </h3>
+
+                    <small>
+
+                        Vehicle IDs
+
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon purple">
+
+                    ↕
+                
+                </div>
+
+                <div>
+
+                    <span>
+
+                        Traversals
+
+                    </span>
+
+                    <h3>
+
+                        3
+
+                    </h3>
+
+                    <small>
+
+                        In / Pre / Post
+
+                    </small>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             TRAVERSALS
+        ================================================== -->
+
+        <div class="section-heading">
+
+            <div>
+
+                <span>
+
+                    TREE TRAVERSALS
+
+                </span>
+
+
+                <h2>
+
+                    BST Traversal Results
+
+                </h2>
+
+            </div>
+
+
+            <p>
+
+                Different ways to visit BST nodes
+
+            </p>
+
+        </div>
+
+
+
+        <section class="module-grid">
+
+
+            <!-- INORDER -->
+
+            <div class="module-card">
+
+                <div class="module-top">
+
+                    <div class="module-icon parking-icon-new">
+
+                        ①
+
+                    </div>
+
+                    <span class="module-number">
+
+                        01
+
+                    </span>
+
+                </div>
+
+
+                <h3>
+
+                    Inorder Traversal
+
+                </h3>
+
+
+                <p>
+
+                    Left → Root → Right
+
+                    <br><br>
+
+                    Produces Vehicle IDs in
+                    sorted order.
+
+                </p>
+
+
+                {% if inorder %}
+
+                <div class="bst-list">
+
+                    {% for vehicle in inorder %}
+
+                    <div>
+
+                        <strong>
+
+                            {{ vehicle.vehicle_id }}
+
+                        </strong>
+
+                        <span>
+
+                            {{ vehicle.vehicle_number }}
+
+                        </span>
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+                {% else %}
+
+                <p>
+
+                    No vehicles in BST.
+
+                </p>
+
+                {% endif %}
+
+            </div>
+
+
+
+            <!-- PREORDER -->
+
+            <div class="module-card">
+
+                <div class="module-top">
+
+                    <div class="module-icon vehicle-icon">
+
+                        ②
+
+                    </div>
+
+                    <span class="module-number">
+
+                        02
+
+                    </span>
+
+                </div>
+
+
+                <h3>
+
+                    Preorder Traversal
+
+                </h3>
+
+
+                <p>
+
+                    Root → Left → Right
+
+                    <br><br>
+
+                    Visits the root node first.
+
+                </p>
+
+
+                {% if preorder %}
+
+                <div class="bst-list">
+
+                    {% for vehicle in preorder %}
+
+                    <div>
+
+                        <strong>
+
+                            {{ vehicle.vehicle_id }}
+
+                        </strong>
+
+                        <span>
+
+                            {{ vehicle.vehicle_number }}
+
+                        </span>
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+                {% else %}
+
+                <p>
+
+                    No vehicles in BST.
+
+                </p>
+
+                {% endif %}
+
+            </div>
+
+
+
+            <!-- POSTORDER -->
+
+            <div class="module-card">
+
+                <div class="module-top">
+
+                    <div class="module-icon queue-icon">
+
+                        ③
+
+                    </div>
+
+                    <span class="module-number">
+
+                        03
+
+                    </span>
+
+                </div>
+
+
+                <h3>
+
+                    Postorder Traversal
+
+                </h3>
+
+
+                <p>
+
+                    Left → Right → Root
+
+                    <br><br>
+
+                    Visits the root node last.
+
+                </p>
+
+
+                {% if postorder %}
+
+                <div class="bst-list">
+
+                    {% for vehicle in postorder %}
+
+                    <div>
+
+                        <strong>
+
+                            {{ vehicle.vehicle_id }}
+
+                        </strong>
+
+                        <span>
+
+                            {{ vehicle.vehicle_number }}
+
+                        </span>
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+                {% else %}
+
+                <p>
+
+                    No vehicles in BST.
+
+                </p>
+
+                {% endif %}
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             HOW BST WORKS
+        ================================================== -->
+
+        <section class="algorithm-panel">
+
+            <div class="algorithm-title">
+
+                <span>
+
+                    BST
+
+                </span>
+
+
+                <div>
+
+                    <h3>
+
+                        How Binary Search Tree Works
+
+                    </h3>
+
+
+                    <p>
+
+                        Vehicle ID determines the
+                        position of each node.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="algorithm-list">
+
+
+                <div>
+
+                    <strong>
+
+                        Smaller ID
+
+                    </strong>
+
+                    <span>
+
+                        Goes to the LEFT
+
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+
+                        Larger ID
+
+                    </strong>
+
+                    <span>
+
+                        Goes to the RIGHT
+
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+
+                        Search
+
+                    </strong>
+
+                    <span>
+
+                        Compare ID and move left/right
+
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+
+                        Inorder
+
+                    </strong>
+
+                    <span>
+
+                        Produces sorted Vehicle IDs
+
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+
+                        Preorder
+
+                    </strong>
+
+                    <span>
+
+                        Root → Left → Right
+
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+
+                        Postorder
+
+                    </strong>
+
+                    <span>
+
+                        Left → Right → Root
+
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- FOOTER -->
+
+        <footer class="dashboard-footer">
+
+            <span>
+
+                ParkEase — Parking Management System
+
+            </span>
+
+
+            <span>
+
+                Phase 2 — Binary Search Tree
+
+            </span>
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

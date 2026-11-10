@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Sort Records</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+<header>
+
+    <div class="logo">🅿️ ParkEase</div>
+
+    <nav>
+
+        <a href="/">Home</a>
+
+        <a href="/dashboard">Dashboard</a>
+
+        <a href="/vehicle">Vehicles</a>
+
+        <a href="/parking-slots">Parking Slots</a>
+
+        <a href="/search-vehicle">Search</a>
+
+        <a href="/sort-records">Sort Records</a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    <!-- PAGE HEADER -->
+
+    <section class="dashboard-header">
+
+        <p class="subtitle">DATA PROCESSING</p>
+
+        <h1>Sort Vehicle Records</h1>
+
+        <p>
+            Organize vehicle records using Bubble Sort and Merge Sort.
+        </p>
+
+    </section>
+
+
+    <!-- SORT OPTIONS -->
+
+    <section class="sort-form">
+
+        <h2>⇅ Sorting Algorithms</h2>
+
+        <p>
+            Select an algorithm to sort the vehicle records
+            by Vehicle ID.
+        </p>
+
+
+        <form method="POST">
+
+            <label for="algorithm">
+                Select Sorting Algorithm
+            </label>
+
+
+            <select
+                id="algorithm"
+                name="algorithm"
+                required
+            >
+
+                <option value="">
+                    Select Algorithm
+                </option>
+
+                <option value="bubble">
+                    Bubble Sort
+                </option>
+
+                <option value="merge">
+                    Merge Sort
+                </option>
+
+            </select>
+
+
+            <button type="submit">
+                ⇅ Sort Records
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- SORT RESULT -->
+
+    {% if sorted_vehicles %}
+
+    <section class="sort-results">
+
+        <div class="sort-result-header">
+
+            <div>
+
+                <p class="result-label">
+                    SORTING RESULT
+                </p>
+
+                <h2>
+                    {{ algorithm_name }}
+                </h2>
+
+            </div>
+
+            <span class="record-count">
+                {{ sorted_vehicles|length }} Records
+            </span>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Vehicle ID</th>
+
+                        <th>Vehicle Number</th>
+
+                        <th>Owner Name</th>
+
+                        <th>Vehicle Type</th>
+
+                        <th>Parking Slot</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for vehicle in sorted_vehicles %}
+
+                    <tr>
+
+                        <td>
+                            {{ vehicle.vehicle_id }}
+                        </td>
+
+                        <td>
+                            {{ vehicle.vehicle_number }}
+                        </td>
+
+                        <td>
+                            {{ vehicle.owner_name }}
+                        </td>
+
+                        <td>
+                            {{ vehicle.vehicle_type }}
+                        </td>
+
+                        <td>
+                            {{ vehicle.parking_slot }}
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    {% else %}
+
+    <section class="sort-empty">
+
+        <div class="empty-icon">
+            ⇅
+        </div>
+
+        <h2>
+            No Sorted Records Yet
+        </h2>
+
+        <p>
+            Add vehicles first, then select Bubble Sort
+            or Merge Sort to organize the records.
+        </p>
+
+    </section>
+
+    {% endif %}
+
+
+    <!-- ALGORITHM INFORMATION -->
+
+    <section class="sorting-info">
+
+        <div class="algorithm-info-card">
+
+            <div class="algorithm-info-icon">
+                B
+            </div>
+
+            <div>
+
+                <h3>Bubble Sort</h3>
+
+                <p>
+                    Compares adjacent vehicle records and
+                    repeatedly swaps them until the records
+                    are arranged in ascending order.
+                </p>
+
+                <span>
+                    Time Complexity: O(n²)
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="algorithm-info-card">
+
+            <div class="algorithm-info-icon">
+                M
+            </div>
+
+            <div>
+
+                <h3>Merge Sort</h3>
+
+                <p>
+                    Divides the vehicle records into smaller
+                    parts, sorts them and merges them back
+                    into a sorted list.
+                </p>
+
+                <span>
+                    Time Complexity: O(n log n)
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        Parking Management System | MCA Project
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

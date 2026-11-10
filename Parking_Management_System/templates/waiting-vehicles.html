@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Waiting Vehicles</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+<header>
+
+    <div class="logo">🅿️ ParkEase</div>
+
+    <nav>
+
+        <a href="/">Home</a>
+
+        <a href="/dashboard">Dashboard</a>
+
+        <a href="/vehicle">Vehicles</a>
+
+        <a href="/parking-slots">Parking Slots</a>
+
+        <a href="/search-vehicle">Search</a>
+
+        <a href="/sort-records">Sort Records</a>
+
+        <a href="/waiting-vehicles">Waiting Vehicles</a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+    <!-- PAGE HEADER -->
+
+    <section class="dashboard-header">
+
+        <p class="subtitle">QUEUE MANAGEMENT</p>
+
+        <h1>Waiting Vehicles</h1>
+
+        <p>
+            Manage vehicles waiting for a parking slot using a Queue.
+        </p>
+
+    </section>
+
+
+    <!-- MESSAGE -->
+
+    {% if message %}
+
+    <div class="queue-message {{ message_type }}">
+        {{ message }}
+    </div>
+
+    {% endif %}
+
+
+    <!-- ADD TO QUEUE -->
+
+    <section class="queue-form">
+
+        <h2>🚗 Add Vehicle to Queue</h2>
+
+        <p>
+            Vehicles are served in First In, First Out (FIFO) order.
+        </p>
+
+
+        <form method="POST">
+
+            <input
+                type="hidden"
+                name="action"
+                value="enqueue"
+            >
+
+            <label for="vehicle_number">
+                Vehicle Number
+            </label>
+
+
+            <input
+                type="text"
+                id="vehicle_number"
+                name="vehicle_number"
+                placeholder="Example: KA01AB1234"
+                required
+            >
+
+
+            <button type="submit">
+                ➕ Join Waiting Queue
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- QUEUE -->
+
+    <section class="queue-section">
+
+        <div class="queue-heading">
+
+            <div>
+
+                <p class="queue-label">
+                    FIFO QUEUE
+                </p>
+
+                <h2>Vehicles Waiting for Parking</h2>
+
+            </div>
+
+            <span class="queue-count">
+                {{ queue|length }} Waiting
+            </span>
+
+        </div>
+
+
+        {% if queue %}
+
+        <div class="queue-container">
+
+            {% for vehicle in queue %}
+
+            <div class="queue-card">
+
+                <div class="queue-position">
+                    {{ loop.index }}
+                </div>
+
+
+                <div class="queue-vehicle">
+
+                    <span class="queue-icon">
+                        🚗
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            {{ vehicle }}
+                        </strong>
+
+                        {% if loop.first %}
+
+                        <small>
+                            Next Vehicle
+                        </small>
+
+                        {% else %}
+
+                        <small>
+                            Waiting
+                        </small>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+
+        <!-- REMOVE FIRST VEHICLE -->
+
+        <form method="POST" class="dequeue-form">
+
+            <input
+                type="hidden"
+                name="action"
+                value="dequeue"
+            >
+
+            <button type="submit">
+                🚪 Process Next Vehicle
+            </button>
+
+        </form>
+
+
+        {% else %}
+
+        <div class="queue-empty">
+
+            <div class="queue-empty-icon">
+                ☷
+            </div>
+
+            <h2>No Vehicles Waiting</h2>
+
+            <p>
+                Vehicles added to the waiting queue will appear here.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </section>
+
+
+    <!-- QUEUE INFORMATION -->
+
+    <section class="queue-info">
+
+        <div class="queue-info-card">
+
+            <div class="queue-info-icon">
+                FIFO
+            </div>
+
+            <div>
+
+                <h3>First In, First Out</h3>
+
+                <p>
+                    The vehicle that enters the queue first
+                    will be processed first.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="queue-info-card">
+
+            <div class="queue-info-icon">
+                Q
+            </div>
+
+            <div>
+
+                <h3>Queue Operations</h3>
+
+                <p>
+                    Enqueue adds a vehicle to the rear.
+                    Dequeue removes the vehicle from the front.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        Parking Management System | MCA Project
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ParkEase | Parking Management System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body class="home-page">
+
+
+<!-- =========================================================
+     NAVIGATION BAR
+========================================================= -->
+
+<header class="home-navbar">
+
+    <div class="home-brand">
+
+        <div class="home-logo">
+            P
+        </div>
+
+        <div>
+            <h2>ParkEase</h2>
+            <span>Parking Management</span>
+        </div>
+
+    </div>
+
+
+    <nav class="home-nav">
+
+        <a href="/" class="home-active">
+            Home
+        </a>
+
+        <a href="#features">
+            Features
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="/dashboard" class="dashboard-link">
+            Dashboard →
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================================================
+     HERO SECTION
+========================================================= -->
+
+<main>
+
+
+<section class="home-hero">
+
+
+    <!-- LEFT SIDE -->
+
+    <div class="home-hero-content">
+
+        <div class="project-badge">
+            PARKING MANAGEMENT
+            <span>•</span>
+            DSA PROJECT
+        </div>
+
+
+        <h1>
+            Smarter Parking.
+            <br>
+            <span>Better Management.</span>
+        </h1>
+
+
+        <p class="home-description">
+
+            A smart Parking Management System designed to
+            efficiently manage vehicles, parking slots,
+            waiting vehicles and parking operations using
+            Data Structures and Algorithms.
+
+        </p>
+
+
+        <div class="home-buttons">
+
+            <a href="/dashboard"
+               class="primary-home-button">
+
+                Enter Parking Dashboard
+                <span>→</span>
+
+            </a>
+
+
+            <a href="#features"
+               class="secondary-home-button">
+
+                Explore System
+
+            </a>
+
+        </div>
+
+
+        <!-- QUICK INFORMATION -->
+
+        <div class="home-stats">
+
+            <div class="home-stat">
+
+                <strong>10</strong>
+
+                <span>
+                    PARKING SLOTS
+                </span>
+
+            </div>
+
+
+            <div class="home-stat">
+
+                <strong>DSA</strong>
+
+                <span>
+                    POWERED SYSTEM
+                </span>
+
+            </div>
+
+
+            <div class="home-stat">
+
+                <strong>24/7</strong>
+
+                <span>
+                    MANAGEMENT
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- RIGHT SIDE PARKING VISUAL -->
+
+    <div class="parking-preview">
+
+        <div class="preview-header">
+
+            <span>
+                AVAILABLE PARKING
+            </span>
+
+            <strong>
+                01
+            </strong>
+
+        </div>
+
+
+        <div class="parking-grid">
+
+
+            <div class="parking-slot available">
+
+                <span>P</span>
+                <small>01</small>
+
+            </div>
+
+
+            <div class="parking-slot occupied">
+
+                <span>🚗</span>
+                <small>02</small>
+
+            </div>
+
+
+            <div class="parking-slot available">
+
+                <span>P</span>
+                <small>03</small>
+
+            </div>
+
+
+            <div class="parking-slot available">
+
+                <span>P</span>
+                <small>04</small>
+
+            </div>
+
+
+            <div class="parking-slot occupied">
+
+                <span>🚙</span>
+                <small>05</small>
+
+            </div>
+
+
+            <div class="parking-slot available">
+
+                <span>P</span>
+                <small>06</small>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="parking-legend">
+
+            <span>
+                <i class="available-dot"></i>
+                Available
+            </span>
+
+            <span>
+                <i class="occupied-dot"></i>
+                Occupied
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FEATURES
+========================================================= -->
+
+<section class="home-features"
+         id="features">
+
+
+    <div class="features-heading">
+
+        <div>
+
+            <span>
+                CORE FEATURES
+            </span>
+
+            <h2>
+                Everything you need
+                to manage parking.
+            </h2>
+
+        </div>
+
+
+        <p>
+            The system uses Data Structures and
+            Algorithms to organize and process
+            parking operations efficiently.
+        </p>
+
+    </div>
+
+
+
+    <div class="home-feature-grid">
+
+
+        <div class="home-feature-card">
+
+            <div class="feature-icon vehicle">
+                🚗
+            </div>
+
+            <h3>
+                Vehicle Management
+            </h3>
+
+            <p>
+                Store and manage vehicle records
+                using a Linked List.
+            </p>
+
+        </div>
+
+
+
+        <div class="home-feature-card">
+
+            <div class="feature-icon parking">
+                P
+            </div>
+
+            <h3>
+                Parking Slots
+            </h3>
+
+            <p>
+                Monitor available and occupied
+                parking slots efficiently.
+            </p>
+
+        </div>
+
+
+
+        <div class="home-feature-card">
+
+            <div class="feature-icon search">
+                🔍
+            </div>
+
+            <h3>
+                Vehicle Search
+            </h3>
+
+            <p>
+                Find vehicle records using
+                Linear Search.
+            </p>
+
+        </div>
+
+
+
+        <div class="home-feature-card">
+
+            <div class="feature-icon sort">
+                ⇅
+            </div>
+
+            <h3>
+                Sorting Records
+            </h3>
+
+            <p>
+                Organize records using Bubble
+                Sort and Merge Sort.
+            </p>
+
+        </div>
+
+
+
+        <div class="home-feature-card">
+
+            <div class="feature-icon queue">
+                ☷
+            </div>
+
+            <h3>
+                Waiting Queue
+            </h3>
+
+            <p>
+                Manage waiting vehicles using
+                the Queue data structure.
+            </p>
+
+        </div>
+
+
+
+        <div class="home-feature-card">
+
+            <div class="feature-icon greedy">
+                ⚡
+            </div>
+
+            <h3>
+                Smart Allocation
+            </h3>
+
+            <p>
+                Allocate suitable parking slots
+                using a Greedy Algorithm.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section class="home-about"
+         id="about">
+
+    <div class="about-content">
+
+        <span>
+            ABOUT THE PROJECT
+        </span>
+
+        <h2>
+            Built with Data Structures
+            and Algorithms.
+        </h2>
+
+        <p>
+
+            ParkEase is an MCA academic project that
+            demonstrates how Data Structures and
+            Algorithms can be applied to solve a
+            real-world parking management problem.
+
+        </p>
+
+    </div>
+
+
+    <div class="about-dsa">
+
+        <div>
+            <strong>Linked List</strong>
+            <span>Vehicle Records</span>
+        </div>
+
+        <div>
+            <strong>Queue</strong>
+            <span>Waiting Vehicles</span>
+        </div>
+
+        <div>
+            <strong>Stack</strong>
+            <span>Undo Operations</span>
+        </div>
+
+        <div>
+            <strong>Greedy</strong>
+            <span>Slot Allocation</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="home-footer">
+
+    <span>
+        ParkEase — Parking Management System
+    </span>
+
+    <span>
+        MCA Data Structures & Algorithms Project
+    </span>
+
+</footer>
+
+
+
+</body>
+
+</html>
